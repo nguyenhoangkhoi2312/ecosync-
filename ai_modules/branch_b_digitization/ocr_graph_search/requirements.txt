@@ -1,0 +1,3 @@
+paddleocr
+networkx
+opencv-python

@@ -1,0 +1,739 @@
+{
+  "$schema": "https://ecosync.ai/building-schema-v2",
+  "buildingId": "ecosync-tower-hcmc-001",
+  "name": "EcoSync Tower - Ho Chi Minh City",
+  "location": {
+    "address": "123 Nguyen Hue Boulevard, District 1",
+    "city": "Ho Chi Minh City",
+    "country": "Vietnam",
+    "coordinates": { "lat": 10.7769, "lng": 106.7020 },
+    "climateZone": "ASVRC 1A - Hot Humid"
+  },
+  "buildingStats": {
+    "totalFloors": 14,
+    "totalHeight": 52.5,
+    "totalFloorArea": 8400,
+    "totalVolume": 29400,
+    "constructionYear": 2019
+  },
+  "floors": [
+    {
+      "floorId": "floor-001",
+      "level": 1,
+      "floorType": "lobby",
+      "name": "Main Lobby & Retail",
+      "height": 6.0,
+      "zones": [
+        {
+          "zoneId": "zone-lobby-main",
+          "name": "Main Lobby",
+          "zoneType": "lobby",
+          "polygon": [[0, 0], [40, 0], [40, 25], [0, 25]],
+          "centroid": { "x": 20, "y": 12.5 },
+          "area": 1000,
+          "volume": 6000,
+          "wallArea": 590,
+          "thermalProperties": {
+            "internalHeatLoad": 5000,
+            "occupancy": 100,
+            "setpoint": 24.0,
+            "deadband": 2.0,
+            "wallThickness": 0.3
+          },
+          "hvacMapping": {
+            "vavId": "vav-lobby-001",
+            "diffuserId": "diff-lobby-001",
+            "returnGrilleId": "grille-lobby-001",
+            "airflowCfm": 3000,
+            "damperPosition": 85
+          }
+        },
+        {
+          "zoneId": "zone-retail-001",
+          "name": "Retail Store A",
+          "zoneType": "retail",
+          "polygon": [[0, 25], [20, 25], [20, 35], [0, 35]],
+          "centroid": { "x": 10, "y": 30 },
+          "area": 200,
+          "volume": 1200,
+          "wallArea": 140,
+          "thermalProperties": {
+            "internalHeatLoad": 3000,
+            "occupancy": 20,
+            "setpoint": 23.0,
+            "deadband": 2.0,
+            "wallThickness": 0.2
+          },
+          "hvacMapping": {
+            "vavId": "vav-retail-001",
+            "diffuserId": "diff-retail-001",
+            "returnGrilleId": "grille-retail-001",
+            "airflowCfm": 1200,
+            "damperPosition": 70
+          }
+        },
+        {
+          "zoneId": "zone-retail-002",
+          "name": "Retail Store B",
+          "zoneType": "retail",
+          "polygon": [[20, 25], [40, 25], [40, 35], [20, 35]],
+          "centroid": { "x": 30, "y": 30 },
+          "area": 200,
+          "volume": 1200,
+          "wallArea": 140,
+          "thermalProperties": {
+            "internalHeatLoad": 3000,
+            "occupancy": 20,
+            "setpoint": 23.0,
+            "deadband": 2.0,
+            "wallThickness": 0.2
+          },
+          "hvacMapping": {
+            "vavId": "vav-retail-002",
+            "diffuserId": "diff-retail-002",
+            "returnGrilleId": "grille-retail-002",
+            "airflowCfm": 1200,
+            "damperPosition": 70
+          }
+        },
+        {
+          "zoneId": "zone-elevator-lobby",
+          "name": "Elevator Lobby",
+          "zoneType": "corridor",
+          "polygon": [[15, 5], [25, 5], [25, 15], [15, 15]],
+          "centroid": { "x": 20, "y": 10 },
+          "area": 100,
+          "volume": 600,
+          "wallArea": 80,
+          "thermalProperties": {
+            "internalHeatLoad": 1000,
+            "occupancy": 30,
+            "setpoint": 24.0,
+            "deadband": 2.0,
+            "wallThickness": 0.25
+          },
+          "hvacMapping": {
+            "vavId": "vav-lobby-002",
+            "diffuserId": "diff-lobby-002",
+            "returnGrilleId": "grille-lobby-002",
+            "airflowCfm": 600,
+            "damperPosition": 65
+          }
+        }
+      ],
+      "geometry": {
+        "exteriorPolygon": [[0, 0], [40, 0], [40, 35], [0, 35]],
+        "corePolygon": [[15, 5], [25, 5], [25, 15], [15, 15]],
+        "wallThickness": 0.3
+      }
+    },
+    {
+      "floorId": "floor-002",
+      "level": 2,
+      "floorType": "typical-office",
+      "name": "Office Level 2",
+      "height": 3.0,
+      "zones": [
+        {
+          "zoneId": "zone-office-2a",
+          "name": "Office 2A - Open Workspace",
+          "zoneType": "office",
+          "polygon": [[0, 0], [18, 0], [18, 30], [0, 30]],
+          "centroid": { "x": 9, "y": 15 },
+          "area": 540,
+          "volume": 1620,
+          "wallArea": 276,
+          "thermalProperties": {
+            "internalHeatLoad": 12000,
+            "occupancy": 35,
+            "setpoint": 24.0,
+            "deadband": 2.0,
+            "wallThickness": 0.2
+          },
+          "hvacMapping": {
+            "vavId": "vav-office-2a",
+            "diffuserId": "diff-office-2a",
+            "returnGrilleId": "grille-office-2a",
+            "airflowCfm": 2200,
+            "damperPosition": 75
+          }
+        },
+        {
+          "zoneId": "zone-office-2b",
+          "name": "Office 2B - Private Offices",
+          "zoneType": "office",
+          "polygon": [[18, 0], [40, 0], [40, 30], [18, 30]],
+          "centroid": { "x": 29, "y": 15 },
+          "area": 660,
+          "volume": 1980,
+          "wallArea": 328,
+          "thermalProperties": {
+            "internalHeatLoad": 14000,
+            "occupancy": 40,
+            "setpoint": 24.0,
+            "deadband": 2.0,
+            "wallThickness": 0.2
+          },
+          "hvacMapping": {
+            "vavId": "vav-office-2b",
+            "diffuserId": "diff-office-2b",
+            "returnGrilleId": "grille-office-2b",
+            "airflowCfm": 2600,
+            "damperPosition": 78
+          }
+        },
+        {
+          "zoneId": "zone-conf-2a",
+          "name": "Conference 2A",
+          "zoneType": "conference",
+          "polygon": [[0, 30], [15, 30], [15, 40], [0, 40]],
+          "centroid": { "x": 7.5, "y": 35 },
+          "area": 150,
+          "volume": 450,
+          "wallArea": 130,
+          "thermalProperties": {
+            "internalHeatLoad": 4000,
+            "occupancy": 16,
+            "setpoint": 23.0,
+            "deadband": 2.0,
+            "wallThickness": 0.2
+          },
+          "hvacMapping": {
+            "vavId": "vav-conf-2a",
+            "diffuserId": "diff-conf-2a",
+            "returnGrilleId": "grille-conf-2a",
+            "airflowCfm": 1000,
+            "damperPosition": 60
+          }
+        }
+      ],
+      "geometry": {
+        "exteriorPolygon": [[0, 0], [40, 0], [40, 40], [0, 40]],
+        "corePolygon": [[17, 18], [23, 18], [23, 28], [17, 28]],
+        "wallThickness": 0.2
+      }
+    },
+    {
+      "floorId": "floor-003",
+      "level": 3,
+      "floorType": "typical-office",
+      "name": "Office Level 3",
+      "height": 3.0,
+      "zones": [
+        {
+          "zoneId": "zone-office-3a",
+          "name": "Office 3A",
+          "zoneType": "office",
+          "polygon": [[0, 0], [18, 0], [18, 30], [0, 30]],
+          "centroid": { "x": 9, "y": 15 },
+          "area": 540,
+          "volume": 1620,
+          "wallArea": 276,
+          "thermalProperties": {
+            "internalHeatLoad": 12000,
+            "occupancy": 35,
+            "setpoint": 24.0,
+            "deadband": 2.0,
+            "wallThickness": 0.2
+          },
+          "hvacMapping": {
+            "vavId": "vav-office-3a",
+            "diffuserId": "diff-office-3a",
+            "returnGrilleId": "grille-office-3a",
+            "airflowCfm": 2200,
+            "damperPosition": 75
+          }
+        },
+        {
+          "zoneId": "zone-office-3b",
+          "name": "Office 3B",
+          "zoneType": "office",
+          "polygon": [[18, 0], [40, 0], [40, 30], [18, 30]],
+          "centroid": { "x": 29, "y": 15 },
+          "area": 660,
+          "volume": 1980,
+          "wallArea": 328,
+          "thermalProperties": {
+            "internalHeatLoad": 14000,
+            "occupancy": 40,
+            "setpoint": 24.0,
+            "deadband": 2.0,
+            "wallThickness": 0.2
+          },
+          "hvacMapping": {
+            "vavId": "vav-office-3b",
+            "diffuserId": "diff-office-3b",
+            "returnGrilleId": "grille-office-3b",
+            "airflowCfm": 2600,
+            "damperPosition": 78
+          }
+        },
+        {
+          "zoneId": "zone-conf-3a",
+          "name": "Conference 3A",
+          "zoneType": "conference",
+          "polygon": [[0, 30], [15, 30], [15, 40], [0, 40]],
+          "centroid": { "x": 7.5, "y": 35 },
+          "area": 150,
+          "volume": 450,
+          "wallArea": 130,
+          "thermalProperties": {
+            "internalHeatLoad": 4000,
+            "occupancy": 16,
+            "setpoint": 23.0,
+            "deadband": 2.0,
+            "wallThickness": 0.2
+          },
+          "hvacMapping": {
+            "vavId": "vav-conf-3a",
+            "diffuserId": "diff-conf-3a",
+            "returnGrilleId": "grille-conf-3a",
+            "airflowCfm": 1000,
+            "damperPosition": 60
+          }
+        }
+      ],
+      "geometry": {
+        "exteriorPolygon": [[0, 0], [40, 0], [40, 40], [0, 40]],
+        "corePolygon": [[17, 18], [23, 18], [23, 28], [17, 28]],
+        "wallThickness": 0.2
+      }
+    },
+    {
+      "floorId": "floor-004",
+      "level": 4,
+      "floorType": "typical-office",
+      "name": "Office Level 4",
+      "height": 3.0,
+      "zones": [
+        {"zoneId": "zone-office-4a", "name": "Office 4A", "zoneType": "office", "polygon": [[0, 0], [18, 0], [18, 30], [0, 30]], "centroid": {"x": 9, "y": 15}, "area": 540, "volume": 1620, "wallArea": 276, "thermalProperties": {"internalHeatLoad": 12000, "occupancy": 35, "setpoint": 24.0, "deadband": 2.0, "wallThickness": 0.2}, "hvacMapping": {"vavId": "vav-office-4a", "diffuserId": "diff-office-4a", "returnGrilleId": "grille-office-4a", "airflowCfm": 2200, "damperPosition": 75}},
+        {"zoneId": "zone-office-4b", "name": "Office 4B", "zoneType": "office", "polygon": [[18, 0], [40, 0], [40, 30], [18, 30]], "centroid": {"x": 29, "y": 15}, "area": 660, "volume": 1980, "wallArea": 328, "thermalProperties": {"internalHeatLoad": 14000, "occupancy": 40, "setpoint": 24.0, "deadband": 2.0, "wallThickness": 0.2}, "hvacMapping": {"vavId": "vav-office-4b", "diffuserId": "diff-office-4b", "returnGrilleId": "grille-office-4b", "airflowCfm": 2600, "damperPosition": 78}},
+        {"zoneId": "zone-conf-4a", "name": "Conference 4A", "zoneType": "conference", "polygon": [[0, 30], [15, 30], [15, 40], [0, 40]], "centroid": {"x": 7.5, "y": 35}, "area": 150, "volume": 450, "wallArea": 130, "thermalProperties": {"internalHeatLoad": 4000, "occupancy": 16, "setpoint": 23.0, "deadband": 2.0, "wallThickness": 0.2}, "hvacMapping": {"vavId": "vav-conf-4a", "diffuserId": "diff-conf-4a", "returnGrilleId": "grille-conf-4a", "airflowCfm": 1000, "damperPosition": 60}}
+      ],
+      "geometry": {"exteriorPolygon": [[0, 0], [40, 0], [40, 40], [0, 40]], "corePolygon": [[17, 18], [23, 18], [23, 28], [17, 28]], "wallThickness": 0.2}
+    },
+    {
+      "floorId": "floor-005",
+      "level": 5,
+      "floorType": "typical-office",
+      "name": "Office Level 5",
+      "height": 3.0,
+      "zones": [
+        {"zoneId": "zone-office-5a", "name": "Office 5A", "zoneType": "office", "polygon": [[0, 0], [18, 0], [18, 30], [0, 30]], "centroid": {"x": 9, "y": 15}, "area": 540, "volume": 1620, "wallArea": 276, "thermalProperties": {"internalHeatLoad": 12000, "occupancy": 35, "setpoint": 24.0, "deadband": 2.0, "wallThickness": 0.2}, "hvacMapping": {"vavId": "vav-office-5a", "diffuserId": "diff-office-5a", "returnGrilleId": "grille-office-5a", "airflowCfm": 2200, "damperPosition": 75}},
+        {"zoneId": "zone-office-5b", "name": "Office 5B", "zoneType": "office", "polygon": [[18, 0], [40, 0], [40, 30], [18, 30]], "centroid": {"x": 29, "y": 15}, "area": 660, "volume": 1980, "wallArea": 328, "thermalProperties": {"internalHeatLoad": 14000, "occupancy": 40, "setpoint": 24.0, "deadband": 2.0, "wallThickness": 0.2}, "hvacMapping": {"vavId": "vav-office-5b", "diffuserId": "diff-office-5b", "returnGrilleId": "grille-office-5b", "airflowCfm": 2600, "damperPosition": 78}},
+        {"zoneId": "zone-conf-5a", "name": "Conference 5A", "zoneType": "conference", "polygon": [[0, 30], [15, 30], [15, 40], [0, 40]], "centroid": {"x": 7.5, "y": 35}, "area": 150, "volume": 450, "wallArea": 130, "thermalProperties": {"internalHeatLoad": 4000, "occupancy": 16, "setpoint": 23.0, "deadband": 2.0, "wallThickness": 0.2}, "hvacMapping": {"vavId": "vav-conf-5a", "diffuserId": "diff-conf-5a", "returnGrilleId": "grille-conf-5a", "airflowCfm": 1000, "damperPosition": 60}}
+      ],
+      "geometry": {"exteriorPolygon": [[0, 0], [40, 0], [40, 40], [0, 40]], "corePolygon": [[17, 18], [23, 18], [23, 28], [17, 28]], "wallThickness": 0.2}
+    },
+    {
+      "floorId": "floor-006",
+      "level": 6,
+      "floorType": "server-hub",
+      "name": "Server Hub Level 6",
+      "height": 3.5,
+      "zones": [
+        {
+          "zoneId": "zone-server-6a",
+          "name": "Server Room 6A (Critical)",
+          "zoneType": "server-room",
+          "polygon": [[5, 5], [35, 5], [35, 25], [5, 25]],
+          "centroid": { "x": 20, "y": 15 },
+          "area": 600,
+          "volume": 2100,
+          "wallArea": 307,
+          "thermalProperties": {
+            "internalHeatLoad": 85000,
+            "occupancy": 5,
+            "setpoint": 22.0,
+            "deadband": 2.0,
+            "wallThickness": 0.25
+          },
+          "hvacMapping": {
+            "vavId": "vav-server-6a",
+            "diffuserId": "diff-server-6a",
+            "returnGrilleId": "grille-server-6a",
+            "airflowCfm": 5500,
+            "damperPosition": 100
+          }
+        },
+        {
+          "zoneId": "zone-server-6b",
+          "name": "Server Room 6B",
+          "zoneType": "server-room",
+          "polygon": [[5, 5], [20, 5], [20, 15], [5, 15]],
+          "centroid": { "x": 12.5, "y": 10 },
+          "area": 150,
+          "volume": 525,
+          "wallArea": 125,
+          "thermalProperties": {
+            "internalHeatLoad": 28000,
+            "occupancy": 2,
+            "setpoint": 22.0,
+            "deadband": 2.0,
+            "wallThickness": 0.25
+          },
+          "hvacMapping": {
+            "vavId": "vav-server-6b",
+            "diffuserId": "diff-server-6b",
+            "returnGrilleId": "grille-server-6b",
+            "airflowCfm": 1800,
+            "damperPosition": 95
+          }
+        },
+        {
+          "zoneId": "zone-cold-aisle",
+          "name": "Cold Aisle Corridor",
+          "zoneType": "corridor",
+          "polygon": [[0, 0], [40, 0], [40, 30], [0, 30]],
+          "centroid": { "x": 20, "y": 15 },
+          "area": 1200,
+          "volume": 4200,
+          "wallArea": 340,
+          "thermalProperties": {
+            "internalHeatLoad": 6000,
+            "occupancy": 10,
+            "setpoint": 24.0,
+            "deadband": 2.0,
+            "wallThickness": 0.2
+          },
+          "hvacMapping": {
+            "vavId": "vav-cold-aisle",
+            "diffuserId": "diff-cold-aisle",
+            "returnGrilleId": "grille-cold-aisle",
+            "airflowCfm": 2500,
+            "damperPosition": 80
+          }
+        }
+      ],
+      "geometry": {
+        "exteriorPolygon": [[0, 0], [40, 0], [40, 30], [0, 30]],
+        "corePolygon": [[18, 18], [22, 18], [22, 22], [18, 22]],
+        "wallThickness": 0.25
+      }
+    },
+    {
+      "floorId": "floor-007",
+      "level": 7,
+      "floorType": "typical-office",
+      "name": "Office Level 7",
+      "height": 3.0,
+      "zones": [
+        {"zoneId": "zone-office-7a", "name": "Office 7A", "zoneType": "office", "polygon": [[0, 0], [18, 0], [18, 30], [0, 30]], "centroid": {"x": 9, "y": 15}, "area": 540, "volume": 1620, "wallArea": 276, "thermalProperties": {"internalHeatLoad": 12000, "occupancy": 35, "setpoint": 24.0, "deadband": 2.0, "wallThickness": 0.2}, "hvacMapping": {"vavId": "vav-office-7a", "diffuserId": "diff-office-7a", "returnGrilleId": "grille-office-7a", "airflowCfm": 2200, "damperPosition": 75}},
+        {"zoneId": "zone-office-7b", "name": "Office 7B", "zoneType": "office", "polygon": [[18, 0], [40, 0], [40, 30], [18, 30]], "centroid": {"x": 29, "y": 15}, "area": 660, "volume": 1980, "wallArea": 328, "thermalProperties": {"internalHeatLoad": 14000, "occupancy": 40, "setpoint": 24.0, "deadband": 2.0, "wallThickness": 0.2}, "hvacMapping": {"vavId": "vav-office-7b", "diffuserId": "diff-office-7b", "returnGrilleId": "grille-office-7b", "airflowCfm": 2600, "damperPosition": 78}},
+        {"zoneId": "zone-conf-7a", "name": "Conference 7A", "zoneType": "conference", "polygon": [[0, 30], [15, 30], [15, 40], [0, 40]], "centroid": {"x": 7.5, "y": 35}, "area": 150, "volume": 450, "wallArea": 130, "thermalProperties": {"internalHeatLoad": 4000, "occupancy": 16, "setpoint": 23.0, "deadband": 2.0, "wallThickness": 0.2}, "hvacMapping": {"vavId": "vav-conf-7a", "diffuserId": "diff-conf-7a", "returnGrilleId": "grille-conf-7a", "airflowCfm": 1000, "damperPosition": 60}}
+      ],
+      "geometry": {"exteriorPolygon": [[0, 0], [40, 0], [40, 40], [0, 40]], "corePolygon": [[17, 18], [23, 18], [23, 28], [17, 28]], "wallThickness": 0.2}
+    },
+    {
+      "floorId": "floor-008",
+      "level": 8,
+      "floorType": "typical-office",
+      "name": "Office Level 8",
+      "height": 3.0,
+      "zones": [
+        {"zoneId": "zone-office-8a", "name": "Office 8A", "zoneType": "office", "polygon": [[0, 0], [18, 0], [18, 30], [0, 30]], "centroid": {"x": 9, "y": 15}, "area": 540, "volume": 1620, "wallArea": 276, "thermalProperties": {"internalHeatLoad": 12000, "occupancy": 35, "setpoint": 24.0, "deadband": 2.0, "wallThickness": 0.2}, "hvacMapping": {"vavId": "vav-office-8a", "diffuserId": "diff-office-8a", "returnGrilleId": "grille-office-8a", "airflowCfm": 2200, "damperPosition": 75}},
+        {"zoneId": "zone-office-8b", "name": "Office 8B", "zoneType": "office", "polygon": [[18, 0], [40, 0], [40, 30], [18, 30]], "centroid": {"x": 29, "y": 15}, "area": 660, "volume": 1980, "wallArea": 328, "thermalProperties": {"internalHeatLoad": 14000, "occupancy": 40, "setpoint": 24.0, "deadband": 2.0, "wallThickness": 0.2}, "hvacMapping": {"vavId": "vav-office-8b", "diffuserId": "diff-office-8b", "returnGrilleId": "grille-office-8b", "airflowCfm": 2600, "damperPosition": 78}},
+        {"zoneId": "zone-conf-8a", "name": "Conference 8A", "zoneType": "conference", "polygon": [[0, 30], [15, 30], [15, 40], [0, 40]], "centroid": {"x": 7.5, "y": 35}, "area": 150, "volume": 450, "wallArea": 130, "thermalProperties": {"internalHeatLoad": 4000, "occupancy": 16, "setpoint": 23.0, "deadband": 2.0, "wallThickness": 0.2}, "hvacMapping": {"vavId": "vav-conf-8a", "diffuserId": "diff-conf-8a", "returnGrilleId": "grille-conf-8a", "airflowCfm": 1000, "damperPosition": 60}}
+      ],
+      "geometry": {"exteriorPolygon": [[0, 0], [40, 0], [40, 40], [0, 40]], "corePolygon": [[17, 18], [23, 18], [23, 28], [17, 28]], "wallThickness": 0.2}
+    },
+    {
+      "floorId": "floor-009",
+      "level": 9,
+      "floorType": "typical-office",
+      "name": "Office Level 9",
+      "height": 3.0,
+      "zones": [
+        {"zoneId": "zone-office-9a", "name": "Office 9A", "zoneType": "office", "polygon": [[0, 0], [18, 0], [18, 30], [0, 30]], "centroid": {"x": 9, "y": 15}, "area": 540, "volume": 1620, "wallArea": 276, "thermalProperties": {"internalHeatLoad": 12000, "occupancy": 35, "setpoint": 24.0, "deadband": 2.0, "wallThickness": 0.2}, "hvacMapping": {"vavId": "vav-office-9a", "diffuserId": "diff-office-9a", "returnGrilleId": "grille-office-9a", "airflowCfm": 2200, "damperPosition": 75}},
+        {"zoneId": "zone-office-9b", "name": "Office 9B", "zoneType": "office", "polygon": [[18, 0], [40, 0], [40, 30], [18, 30]], "centroid": {"x": 29, "y": 15}, "area": 660, "volume": 1980, "wallArea": 328, "thermalProperties": {"internalHeatLoad": 14000, "occupancy": 40, "setpoint": 24.0, "deadband": 2.0, "wallThickness": 0.2}, "hvacMapping": {"vavId": "vav-office-9b", "diffuserId": "diff-office-9b", "returnGrilleId": "grille-office-9b", "airflowCfm": 2600, "damperPosition": 78}},
+        {"zoneId": "zone-conf-9a", "name": "Conference 9A", "zoneType": "conference", "polygon": [[0, 30], [15, 30], [15, 40], [0, 40]], "centroid": {"x": 7.5, "y": 35}, "area": 150, "volume": 450, "wallArea": 130, "thermalProperties": {"internalHeatLoad": 4000, "occupancy": 16, "setpoint": 23.0, "deadband": 2.0, "wallThickness": 0.2}, "hvacMapping": {"vavId": "vav-conf-9a", "diffuserId": "diff-conf-9a", "returnGrilleId": "grille-conf-9a", "airflowCfm": 1000, "damperPosition": 60}}
+      ],
+      "geometry": {"exteriorPolygon": [[0, 0], [40, 0], [40, 40], [0, 40]], "corePolygon": [[17, 18], [23, 18], [23, 28], [17, 28]], "wallThickness": 0.2}
+    },
+    {
+      "floorId": "floor-010",
+      "level": 10,
+      "floorType": "typical-office",
+      "name": "Office Level 10",
+      "height": 3.0,
+      "zones": [
+        {"zoneId": "zone-office-10a", "name": "Office 10A", "zoneType": "office", "polygon": [[0, 0], [18, 0], [18, 30], [0, 30]], "centroid": {"x": 9, "y": 15}, "area": 540, "volume": 1620, "wallArea": 276, "thermalProperties": {"internalHeatLoad": 12000, "occupancy": 35, "setpoint": 24.0, "deadband": 2.0, "wallThickness": 0.2}, "hvacMapping": {"vavId": "vav-office-10a", "diffuserId": "diff-office-10a", "returnGrilleId": "grille-office-10a", "airflowCfm": 2200, "damperPosition": 75}},
+        {"zoneId": "zone-office-10b", "name": "Office 10B", "zoneType": "office", "polygon": [[18, 0], [40, 0], [40, 30], [18, 30]], "centroid": {"x": 29, "y": 15}, "area": 660, "volume": 1980, "wallArea": 328, "thermalProperties": {"internalHeatLoad": 14000, "occupancy": 40, "setpoint": 24.0, "deadband": 2.0, "wallThickness": 0.2}, "hvacMapping": {"vavId": "vav-office-10b", "diffuserId": "diff-office-10b", "returnGrilleId": "grille-office-10b", "airflowCfm": 2600, "damperPosition": 78}},
+        {"zoneId": "zone-conf-10a", "name": "Conference 10A", "zoneType": "conference", "polygon": [[0, 30], [15, 30], [15, 40], [0, 40]], "centroid": {"x": 7.5, "y": 35}, "area": 150, "volume": 450, "wallArea": 130, "thermalProperties": {"internalHeatLoad": 4000, "occupancy": 16, "setpoint": 23.0, "deadband": 2.0, "wallThickness": 0.2}, "hvacMapping": {"vavId": "vav-conf-10a", "diffuserId": "diff-conf-10a", "returnGrilleId": "grille-conf-10a", "airflowCfm": 1000, "damperPosition": 60}}
+      ],
+      "geometry": {"exteriorPolygon": [[0, 0], [40, 0], [40, 40], [0, 40]], "corePolygon": [[17, 18], [23, 18], [23, 28], [17, 28]], "wallThickness": 0.2}
+    },
+    {
+      "floorId": "floor-011",
+      "level": 11,
+      "floorType": "executive-suite",
+      "name": "Executive Suites Level 11",
+      "height": 3.5,
+      "zones": [
+        {
+          "zoneId": "zone-exec-11a",
+          "name": "Executive Office 11A",
+          "zoneType": "office",
+          "polygon": [[0, 0], [25, 0], [25, 35], [0, 35]],
+          "centroid": { "x": 12.5, "y": 17.5 },
+          "area": 875,
+          "volume": 3063,
+          "wallArea": 360,
+          "thermalProperties": {
+            "internalHeatLoad": 10000,
+            "occupancy": 8,
+            "setpoint": 23.0,
+            "deadband": 2.0,
+            "wallThickness": 0.25
+          },
+          "hvacMapping": {
+            "vavId": "vav-exec-11a",
+            "diffuserId": "diff-exec-11a",
+            "returnGrilleId": "grille-exec-11a",
+            "airflowCfm": 2000,
+            "damperPosition": 70
+          }
+        },
+        {
+          "zoneId": "zone-exec-11b",
+          "name": "Executive Office 11B",
+          "zoneType": "office",
+          "polygon": [[25, 0], [40, 0], [40, 35], [25, 35]],
+          "centroid": { "x": 32.5, "y": 17.5 },
+          "area": 525,
+          "volume": 1838,
+          "wallArea": 240,
+          "thermalProperties": {
+            "internalHeatLoad": 8000,
+            "occupancy": 6,
+            "setpoint": 23.0,
+            "deadband": 2.0,
+            "wallThickness": 0.25
+          },
+          "hvacMapping": {
+            "vavId": "vav-exec-11b",
+            "diffuserId": "diff-exec-11b",
+            "returnGrilleId": "grille-exec-11b",
+            "airflowCfm": 1600,
+            "damperPosition": 68
+          }
+        },
+        {
+          "zoneId": "zone-boardroom",
+          "name": "Board Room",
+          "zoneType": "conference",
+          "polygon": [[0, 35], [40, 35], [40, 45], [0, 45]],
+          "centroid": { "x": 20, "y": 40 },
+          "area": 400,
+          "volume": 1400,
+          "wallArea": 220,
+          "thermalProperties": {
+            "internalHeatLoad": 6000,
+            "occupancy": 24,
+            "setpoint": 22.0,
+            "deadband": 2.0,
+            "wallThickness": 0.25
+          },
+          "hvacMapping": {
+            "vavId": "vav-boardroom",
+            "diffuserId": "diff-boardroom",
+            "returnGrilleId": "grille-boardroom",
+            "airflowCfm": 2400,
+            "damperPosition": 75
+          }
+        }
+      ],
+      "geometry": {
+        "exteriorPolygon": [[0, 0], [40, 0], [40, 45], [0, 45]],
+        "corePolygon": [[17, 15], [23, 15], [23, 25], [17, 25]],
+        "wallThickness": 0.25
+      }
+    },
+    {
+      "floorId": "floor-012",
+      "level": 12,
+      "floorType": "executive-suite",
+      "name": "Executive Suites Level 12",
+      "height": 3.5,
+      "zones": [
+        {
+          "zoneId": "zone-exec-12a",
+          "name": "Executive Office 12A",
+          "zoneType": "office",
+          "polygon": [[0, 0], [25, 0], [25, 35], [0, 35]],
+          "centroid": { "x": 12.5, "y": 17.5 },
+          "area": 875,
+          "volume": 3063,
+          "wallArea": 360,
+          "thermalProperties": {
+            "internalHeatLoad": 10000,
+            "occupancy": 8,
+            "setpoint": 23.0,
+            "deadband": 2.0,
+            "wallThickness": 0.25
+          },
+          "hvacMapping": {
+            "vavId": "vav-exec-12a",
+            "diffuserId": "diff-exec-12a",
+            "returnGrilleId": "grille-exec-12a",
+            "airflowCfm": 2000,
+            "damperPosition": 70
+          }
+        },
+        {
+          "zoneId": "zone-exec-12b",
+          "name": "Executive Office 12B",
+          "zoneType": "office",
+          "polygon": [[25, 0], [40, 0], [40, 35], [25, 35]],
+          "centroid": { "x": 32.5, "y": 17.5 },
+          "area": 525,
+          "volume": 1838,
+          "wallArea": 240,
+          "thermalProperties": {
+            "internalHeatLoad": 8000,
+            "occupancy": 6,
+            "setpoint": 23.0,
+            "deadband": 2.0,
+            "wallThickness": 0.25
+          },
+          "hvacMapping": {
+            "vavId": "vav-exec-12b",
+            "diffuserId": "diff-exec-12b",
+            "returnGrilleId": "grille-exec-12b",
+            "airflowCfm": 1600,
+            "damperPosition": 68
+          }
+        },
+        {
+          "zoneId": "zone-lounge-12",
+          "name": "Executive Lounge",
+          "zoneType": "office",
+          "polygon": [[0, 35], [40, 35], [40, 45], [0, 45]],
+          "centroid": { "x": 20, "y": 40 },
+          "area": 400,
+          "volume": 1400,
+          "wallArea": 220,
+          "thermalProperties": {
+            "internalHeatLoad": 5000,
+            "occupancy": 15,
+            "setpoint": 23.0,
+            "deadband": 2.0,
+            "wallThickness": 0.25
+          },
+          "hvacMapping": {
+            "vavId": "vav-lounge-12",
+            "diffuserId": "diff-lounge-12",
+            "returnGrilleId": "grille-lounge-12",
+            "airflowCfm": 1800,
+            "damperPosition": 65
+          }
+        }
+      ],
+      "geometry": {
+        "exteriorPolygon": [[0, 0], [40, 0], [40, 45], [0, 45]],
+        "corePolygon": [[17, 15], [23, 15], [23, 25], [17, 25]],
+        "wallThickness": 0.25
+      }
+    },
+    {
+      "floorId": "floor-013",
+      "level": 13,
+      "floorType": "server-hub",
+      "name": "Server Hub Level 13",
+      "height": 3.5,
+      "zones": [
+        {
+          "zoneId": "zone-server-13a",
+          "name": "Server Room 13A (Backup)",
+          "zoneType": "server-room",
+          "polygon": [[5, 5], [35, 5], [35, 25], [5, 25]],
+          "centroid": { "x": 20, "y": 15 },
+          "area": 600,
+          "volume": 2100,
+          "wallArea": 307,
+          "thermalProperties": {
+            "internalHeatLoad": 65000,
+            "occupancy": 5,
+            "setpoint": 22.0,
+            "deadband": 2.0,
+            "wallThickness": 0.25
+          },
+          "hvacMapping": {
+            "vavId": "vav-server-13a",
+            "diffuserId": "diff-server-13a",
+            "returnGrilleId": "grille-server-13a",
+            "airflowCfm": 4500,
+            "damperPosition": 100
+          }
+        },
+        {
+          "zoneId": "zone-network-13",
+          "name": "Network Operations Center",
+          "zoneType": "server-room",
+          "polygon": [[5, 5], [20, 5], [20, 15], [5, 15]],
+          "centroid": { "x": 12.5, "y": 10 },
+          "area": 150,
+          "volume": 525,
+          "wallArea": 125,
+          "thermalProperties": {
+            "internalHeatLoad": 22000,
+            "occupancy": 8,
+            "setpoint": 22.0,
+            "deadband": 2.0,
+            "wallThickness": 0.25
+          },
+          "hvacMapping": {
+            "vavId": "vav-noc-13",
+            "diffuserId": "diff-noc-13",
+            "returnGrilleId": "grille-noc-13",
+            "airflowCfm": 1500,
+            "damperPosition": 95
+          }
+        }
+      ],
+      "geometry": {
+        "exteriorPolygon": [[0, 0], [40, 0], [40, 30], [0, 30]],
+        "corePolygon": [[18, 18], [22, 18], [22, 22], [18, 22]],
+        "wallThickness": 0.25
+      }
+    },
+    {
+      "floorId": "floor-014",
+      "level": 14,
+      "floorType": "mechanical-penthouse",
+      "name": "Mechanical Penthouse",
+      "height": 5.0,
+      "zones": [
+        {
+          "zoneId": "zone-ahu-14",
+          "name": "AHU Mechanical Room",
+          "zoneType": "mechanical",
+          "polygon": [[5, 5], [35, 5], [35, 30], [5, 30]],
+          "centroid": { "x": 20, "y": 17.5 },
+          "area": 750,
+          "volume": 3750,
+          "wallArea": 400,
+          "thermalProperties": {
+            "internalHeatLoad": 5000,
+            "occupancy": 2,
+            "setpoint": 26.0,
+            "deadband": 3.0,
+            "wallThickness": 0.3
+          },
+          "hvacMapping": {
+            "vavId": "vav-ahu-14",
+            "diffuserId": "diff-ahu-14",
+            "returnGrilleId": "grille-ahu-14",
+            "airflowCfm": 1000,
+            "damperPosition": 50
+          }
+        }
+      ],
+      "geometry": {
+        "exteriorPolygon": [[0, 0], [40, 0], [40, 40], [0, 40]],
+        "corePolygon": [[15, 15], [25, 15], [25, 25], [15, 25]],
+        "wallThickness": 0.3
+      }
+    }
+  ]
+}

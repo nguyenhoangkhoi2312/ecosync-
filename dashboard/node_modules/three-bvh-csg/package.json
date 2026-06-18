@@ -1,0 +1,69 @@
+{
+  "name": "three-bvh-csg",
+  "version": "0.0.18",
+  "description": "A fast, flexible, dynamic CSG implementation on top of three-mesh-bvh",
+  "main": "build/index.umd.cjs",
+  "module": "src/index.js",
+  "type": "module",
+  "types": "src/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "start": "vite --config ./vite.config.js",
+    "build-examples": "vite build --config ./vite.config.js",
+    "build": "npm run build-cdt2d && rollup -c",
+    "lint": "eslint . && tsc --noEmit",
+    "benchmark": "node ./benchmark/benchmark.js",
+    "test": "vitest run",
+    "build-cdt2d": "esbuild node_modules/cdt2d/cdt2d.js --bundle --format=esm --outfile=src/libs/cdt2d.js --banner:js='// Auto-generated ESM bundle of cdt2d'",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "src/*",
+    "build/*"
+  ],
+  "keywords": [
+    "construction",
+    "webgl",
+    "threejs",
+    "geometry",
+    "graphics",
+    "game-development",
+    "csg",
+    "3d-printing",
+    "three",
+    "constructive-solid-geometry",
+    "computational-solid-geometry",
+    "three-mesh-bvh"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gkjohnson/three-bvh-csg.git"
+  },
+  "author": "Garrett Johnson <garrett.kjohnson@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gkjohnson/three-bvh-csg/issues"
+  },
+  "homepage": "https://github.com/gkjohnson/three-bvh-csg#readme",
+  "peerDependencies": {
+    "three": ">=0.179.0",
+    "three-mesh-bvh": ">=0.9.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@types/three": "^0.179.0",
+    "@vitest/eslint-plugin": "^1.5.0",
+    "eslint": "^9.0.0",
+    "eslint-config-mdcs": "^5.0.0",
+    "globals": "^16.5.0",
+    "rollup": "^2.70.0",
+    "three": "^0.179.0",
+    "three-csg-ts": "^3.1.10",
+    "three-mesh-bvh": "^0.9.7",
+    "typescript": "^5.6.0",
+    "typescript-eslint": "^8.48.1",
+    "vite": "^6.2.2",
+    "vitest": "^4.0.14",
+    "cdt2d": "^1.0.0"
+  }
+}

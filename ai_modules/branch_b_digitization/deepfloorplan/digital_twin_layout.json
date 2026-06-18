@@ -1,0 +1,35 @@
+[
+    {
+        "name": "Zone_A",
+        "bounding_box": {
+            "x": 307,
+            "y": 257,
+            "width": 439,
+            "height": 189
+        },
+        "area": 82344.0,
+        "capacity": 54
+    },
+    {
+        "name": "Zone_B",
+        "bounding_box": {
+            "x": 307,
+            "y": 57,
+            "width": 439,
+            "height": 189
+        },
+        "area": 82344.0,
+        "capacity": 54
+    },
+    {
+        "name": "Zone_C",
+        "bounding_box": {
+            "x": 57,
+            "y": 57,
+            "width": 239,
+            "height": 389
+        },
+        "area": 92344.0,
+        "capacity": 61
+    }
+]

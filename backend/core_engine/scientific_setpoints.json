@@ -1,0 +1,15 @@
+{
+    "status": "active",
+    "scientific_setpoints": {
+        "optimal_temperature_c": 23.5,
+        "max_co2_ppm": 800
+    },
+    "evidence": [
+        {
+            "arxiv_id": "http://arxiv.org/abs/0805.0819v1",
+            "title": "Prey-predator modeling of CO2 atmospheric concentration",
+            "extracted_temp_C": 23.5,
+            "extracted_co2_ppm": 800
+        }
+    ]
+}

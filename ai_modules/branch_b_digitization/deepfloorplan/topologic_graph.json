@@ -1,0 +1,3078 @@
+{
+    "nodes": [
+        {
+            "id": "Zone_A",
+            "integration_score": 0.014,
+            "area": 6247.0,
+            "centroid": [
+                1330,
+                4788
+            ]
+        },
+        {
+            "id": "Zone_B",
+            "integration_score": 0.023,
+            "area": 5348.5,
+            "centroid": [
+                2511,
+                4786
+            ]
+        },
+        {
+            "id": "Zone_C",
+            "integration_score": 0.018,
+            "area": 6130.0,
+            "centroid": [
+                1900,
+                4778
+            ]
+        },
+        {
+            "id": "Zone_D",
+            "integration_score": 0.016,
+            "area": 8015.0,
+            "centroid": [
+                3667,
+                4777
+            ]
+        },
+        {
+            "id": "Zone_E",
+            "integration_score": 0.018,
+            "area": 13013.0,
+            "centroid": [
+                3462,
+                4777
+            ]
+        },
+        {
+            "id": "Zone_F",
+            "integration_score": 0.02,
+            "area": 10305.0,
+            "centroid": [
+                3253,
+                4776
+            ]
+        },
+        {
+            "id": "Zone_G",
+            "integration_score": 0.024,
+            "area": 8262.0,
+            "centroid": [
+                2652,
+                4776
+            ]
+        },
+        {
+            "id": "Zone_H",
+            "integration_score": 0.014,
+            "area": 6570.0,
+            "centroid": [
+                5309,
+                4775
+            ]
+        },
+        {
+            "id": "Zone_I",
+            "integration_score": 0.01,
+            "area": 6371.5,
+            "centroid": [
+                710,
+                4764
+            ]
+        },
+        {
+            "id": "Zone_J",
+            "integration_score": 0.014,
+            "area": 10457.0,
+            "centroid": [
+                5441,
+                4767
+            ]
+        },
+        {
+            "id": "Zone_K",
+            "integration_score": 0.021,
+            "area": 10126.5,
+            "centroid": [
+                2197,
+                4741
+            ]
+        },
+        {
+            "id": "Zone_L",
+            "integration_score": 0.018,
+            "area": 5124.0,
+            "centroid": [
+                1899,
+                4702
+            ]
+        },
+        {
+            "id": "Zone_M",
+            "integration_score": 0.014,
+            "area": 16283.5,
+            "centroid": [
+                1057,
+                4730
+            ]
+        },
+        {
+            "id": "Zone_N",
+            "integration_score": 0.02,
+            "area": 15350.0,
+            "centroid": [
+                2061,
+                4728
+            ]
+        },
+        {
+            "id": "Zone_O",
+            "integration_score": 0.01,
+            "area": 23790.0,
+            "centroid": [
+                5814,
+                4712
+            ]
+        },
+        {
+            "id": "Zone_P",
+            "integration_score": 0.014,
+            "area": 11264.0,
+            "centroid": [
+                5404,
+                4658
+            ]
+        },
+        {
+            "id": "Zone_Q",
+            "integration_score": 0.01,
+            "area": 13671.5,
+            "centroid": [
+                5074,
+                4691
+            ]
+        },
+        {
+            "id": "Zone_R",
+            "integration_score": 0.01,
+            "area": 15178.5,
+            "centroid": [
+                572,
+                4672
+            ]
+        },
+        {
+            "id": "Zone_S",
+            "integration_score": 0.023,
+            "area": 26360.5,
+            "centroid": [
+                2367,
+                4700
+            ]
+        },
+        {
+            "id": "Zone_T",
+            "integration_score": 0.016,
+            "area": 17763.0,
+            "centroid": [
+                3573,
+                4650
+            ]
+        },
+        {
+            "id": "Zone_U",
+            "integration_score": 0.018,
+            "area": 27952.0,
+            "centroid": [
+                5197,
+                4695
+            ]
+        },
+        {
+            "id": "Zone_V",
+            "integration_score": 0.007,
+            "area": 18820.5,
+            "centroid": [
+                5662,
+                4676
+            ]
+        },
+        {
+            "id": "Zone_W",
+            "integration_score": 0.016,
+            "area": 5883.5,
+            "centroid": [
+                1826,
+                4598
+            ]
+        },
+        {
+            "id": "Zone_X",
+            "integration_score": 0.007,
+            "area": 8684.0,
+            "centroid": [
+                842,
+                4621
+            ]
+        },
+        {
+            "id": "Zone_Y",
+            "integration_score": 0.02,
+            "area": 22714.0,
+            "centroid": [
+                3233,
+                4636
+            ]
+        },
+        {
+            "id": "Zone_Z",
+            "integration_score": 0.018,
+            "area": 13507.0,
+            "centroid": [
+                3422,
+                4629
+            ]
+        },
+        {
+            "id": "Zone_[",
+            "integration_score": 0.022,
+            "area": 24248.0,
+            "centroid": [
+                3025,
+                4640
+            ]
+        },
+        {
+            "id": "Zone_\\",
+            "integration_score": 0.014,
+            "area": 238559.5,
+            "centroid": [
+                4260,
+                4683
+            ]
+        },
+        {
+            "id": "Zone_]",
+            "integration_score": 0.023,
+            "area": 27445.0,
+            "centroid": [
+                2767,
+                4638
+            ]
+        },
+        {
+            "id": "Zone_^",
+            "integration_score": 0.019,
+            "area": 6404.5,
+            "centroid": [
+                2590,
+                4597
+            ]
+        },
+        {
+            "id": "Zone__",
+            "integration_score": 0.016,
+            "area": 91604.0,
+            "centroid": [
+                1470,
+                4682
+            ]
+        },
+        {
+            "id": "Zone_`",
+            "integration_score": 0.007,
+            "area": 6397.5,
+            "centroid": [
+                426,
+                4597
+            ]
+        },
+        {
+            "id": "Zone_a",
+            "integration_score": 0.018,
+            "area": 5384.5,
+            "centroid": [
+                1924,
+                4593
+            ]
+        },
+        {
+            "id": "Zone_b",
+            "integration_score": 0.004,
+            "area": 15394.0,
+            "centroid": [
+                26,
+                4651
+            ]
+        },
+        {
+            "id": "Zone_c",
+            "integration_score": 0.012,
+            "area": 59945.0,
+            "centroid": [
+                6003,
+                4627
+            ]
+        },
+        {
+            "id": "Zone_d",
+            "integration_score": 0.017,
+            "area": 5386.0,
+            "centroid": [
+                3422,
+                4480
+            ]
+        },
+        {
+            "id": "Zone_e",
+            "integration_score": 0.004,
+            "area": 5135.5,
+            "centroid": [
+                5963,
+                4345
+            ]
+        },
+        {
+            "id": "Zone_f",
+            "integration_score": 0.01,
+            "area": 5178.5,
+            "centroid": [
+                6265,
+                4347
+            ]
+        },
+        {
+            "id": "Zone_g",
+            "integration_score": 0.0,
+            "area": 8090.5,
+            "centroid": [
+                4479,
+                4281
+            ]
+        },
+        {
+            "id": "Zone_h",
+            "integration_score": 0.004,
+            "area": 8933.0,
+            "centroid": [
+                4953,
+                4251
+            ]
+        },
+        {
+            "id": "Zone_i",
+            "integration_score": 0.0,
+            "area": 5246.0,
+            "centroid": [
+                2223,
+                4227
+            ]
+        },
+        {
+            "id": "Zone_j",
+            "integration_score": 0.004,
+            "area": 15144.5,
+            "centroid": [
+                5083,
+                4257
+            ]
+        },
+        {
+            "id": "Zone_k",
+            "integration_score": 0.0,
+            "area": 5724.5,
+            "centroid": [
+                4088,
+                4223
+            ]
+        },
+        {
+            "id": "Zone_l",
+            "integration_score": 0.0,
+            "area": 8169.0,
+            "centroid": [
+                3762,
+                4233
+            ]
+        },
+        {
+            "id": "Zone_m",
+            "integration_score": 0.0,
+            "area": 7319.5,
+            "centroid": [
+                3020,
+                4219
+            ]
+        },
+        {
+            "id": "Zone_n",
+            "integration_score": 0.004,
+            "area": 9381.5,
+            "centroid": [
+                5870,
+                4215
+            ]
+        },
+        {
+            "id": "Zone_o",
+            "integration_score": 0.007,
+            "area": 12474.0,
+            "centroid": [
+                6257,
+                4183
+            ]
+        },
+        {
+            "id": "Zone_p",
+            "integration_score": 0.046,
+            "area": 7196.5,
+            "centroid": [
+                5240,
+                4033
+            ]
+        },
+        {
+            "id": "Zone_q",
+            "integration_score": 0.004,
+            "area": 6525.5,
+            "centroid": [
+                1949,
+                4032
+            ]
+        },
+        {
+            "id": "Zone_r",
+            "integration_score": 0.0,
+            "area": 12151.0,
+            "centroid": [
+                2265,
+                4042
+            ]
+        },
+        {
+            "id": "Zone_s",
+            "integration_score": 0.0,
+            "area": 10556.5,
+            "centroid": [
+                5973,
+                3991
+            ]
+        },
+        {
+            "id": "Zone_t",
+            "integration_score": 0.0,
+            "area": 5015.0,
+            "centroid": [
+                3027,
+                3959
+            ]
+        },
+        {
+            "id": "Zone_u",
+            "integration_score": 0.052,
+            "area": 13133.0,
+            "centroid": [
+                4776,
+                4014
+            ]
+        },
+        {
+            "id": "Zone_v",
+            "integration_score": 0.0,
+            "area": 6431.0,
+            "centroid": [
+                1577,
+                3912
+            ]
+        },
+        {
+            "id": "Zone_w",
+            "integration_score": 0.052,
+            "area": 43238.5,
+            "centroid": [
+                5011,
+                3984
+            ]
+        },
+        {
+            "id": "Zone_x",
+            "integration_score": 0.004,
+            "area": 17136.5,
+            "centroid": [
+                1805,
+                3889
+            ]
+        },
+        {
+            "id": "Zone_y",
+            "integration_score": 0.041,
+            "area": 10394.0,
+            "centroid": [
+                3477,
+                3851
+            ]
+        },
+        {
+            "id": "Zone_z",
+            "integration_score": 0.042,
+            "area": 20819.5,
+            "centroid": [
+                5387,
+                3906
+            ]
+        },
+        {
+            "id": "Zone_{",
+            "integration_score": 0.0,
+            "area": 8121.5,
+            "centroid": [
+                1398,
+                3776
+            ]
+        },
+        {
+            "id": "Zone_|",
+            "integration_score": 0.052,
+            "area": 25930.0,
+            "centroid": [
+                3730,
+                3846
+            ]
+        },
+        {
+            "id": "Zone_}",
+            "integration_score": 0.038,
+            "area": 8945.5,
+            "centroid": [
+                5489,
+                3749
+            ]
+        },
+        {
+            "id": "Zone_~",
+            "integration_score": 0.0,
+            "area": 5280.0,
+            "centroid": [
+                1587,
+                3736
+            ]
+        },
+        {
+            "id": "Zone_\u007f",
+            "integration_score": 0.004,
+            "area": 30652.5,
+            "centroid": [
+                22,
+                4077
+            ]
+        },
+        {
+            "id": "Zone_\u0080",
+            "integration_score": 0.042,
+            "area": 6858.5,
+            "centroid": [
+                5364,
+                3685
+            ]
+        },
+        {
+            "id": "Zone_\u0081",
+            "integration_score": 0.046,
+            "area": 30616.5,
+            "centroid": [
+                3555,
+                3776
+            ]
+        },
+        {
+            "id": "Zone_\u0082",
+            "integration_score": 0.047,
+            "area": 30401.5,
+            "centroid": [
+                5176,
+                3735
+            ]
+        },
+        {
+            "id": "Zone_\u0083",
+            "integration_score": 0.052,
+            "area": 30837.0,
+            "centroid": [
+                4991,
+                3734
+            ]
+        },
+        {
+            "id": "Zone_\u0084",
+            "integration_score": 0.059,
+            "area": 346814.5,
+            "centroid": [
+                4306,
+                3853
+            ]
+        },
+        {
+            "id": "Zone_\u0085",
+            "integration_score": 0.0,
+            "area": 5605.5,
+            "centroid": [
+                5932,
+                3545
+            ]
+        },
+        {
+            "id": "Zone_\u0086",
+            "integration_score": 0.041,
+            "area": 12285.5,
+            "centroid": [
+                6240,
+                3580
+            ]
+        },
+        {
+            "id": "Zone_\u0087",
+            "integration_score": 0.041,
+            "area": 5903.0,
+            "centroid": [
+                3600,
+                3531
+            ]
+        },
+        {
+            "id": "Zone_\u0088",
+            "integration_score": 0.046,
+            "area": 6457.0,
+            "centroid": [
+                4992,
+                3525
+            ]
+        },
+        {
+            "id": "Zone_\u0089",
+            "integration_score": 0.0,
+            "area": 5210.5,
+            "centroid": [
+                1985,
+                3443
+            ]
+        },
+        {
+            "id": "Zone_\u008a",
+            "integration_score": 0.0,
+            "area": 5961.0,
+            "centroid": [
+                3100,
+                3438
+            ]
+        },
+        {
+            "id": "Zone_\u008b",
+            "integration_score": 0.042,
+            "area": 34484.0,
+            "centroid": [
+                5428,
+                3500
+            ]
+        },
+        {
+            "id": "Zone_\u008c",
+            "integration_score": 0.046,
+            "area": 13505.5,
+            "centroid": [
+                6209,
+                3421
+            ]
+        },
+        {
+            "id": "Zone_\u008d",
+            "integration_score": 0.037,
+            "area": 6203.0,
+            "centroid": [
+                3486,
+                3384
+            ]
+        },
+        {
+            "id": "Zone_\u008e",
+            "integration_score": 0.058,
+            "area": 54340.5,
+            "centroid": [
+                4654,
+                3446
+            ]
+        },
+        {
+            "id": "Zone_\u008f",
+            "integration_score": 0.051,
+            "area": 6681.5,
+            "centroid": [
+                5992,
+                3297
+            ]
+        },
+        {
+            "id": "Zone_\u0090",
+            "integration_score": 0.059,
+            "area": 10057.0,
+            "centroid": [
+                5705,
+                3258
+            ]
+        },
+        {
+            "id": "Zone_\u0091",
+            "integration_score": 0.059,
+            "area": 5456.0,
+            "centroid": [
+                5866,
+                3241
+            ]
+        },
+        {
+            "id": "Zone_\u0092",
+            "integration_score": 0.05,
+            "area": 26521.0,
+            "centroid": [
+                4738,
+                3281
+            ]
+        },
+        {
+            "id": "Zone_\u0093",
+            "integration_score": 0.051,
+            "area": 7546.0,
+            "centroid": [
+                5600,
+                3245
+            ]
+        },
+        {
+            "id": "Zone_\u0094",
+            "integration_score": 0.054,
+            "area": 5124.5,
+            "centroid": [
+                5018,
+                3219
+            ]
+        },
+        {
+            "id": "Zone_\u0095",
+            "integration_score": 0.063,
+            "area": 9507.5,
+            "centroid": [
+                5106,
+                3216
+            ]
+        },
+        {
+            "id": "Zone_\u0096",
+            "integration_score": 0.058,
+            "area": 97693.5,
+            "centroid": [
+                3889,
+                3364
+            ]
+        },
+        {
+            "id": "Zone_\u0097",
+            "integration_score": 0.065,
+            "area": 132556.5,
+            "centroid": [
+                4272,
+                3361
+            ]
+        },
+        {
+            "id": "Zone_\u0098",
+            "integration_score": 0.06,
+            "area": 16391.5,
+            "centroid": [
+                6001,
+                3197
+            ]
+        },
+        {
+            "id": "Zone_\u0099",
+            "integration_score": 0.053,
+            "area": 28788.5,
+            "centroid": [
+                6220,
+                3162
+            ]
+        },
+        {
+            "id": "Zone_\u009a",
+            "integration_score": 0.06,
+            "area": 5429.0,
+            "centroid": [
+                6115,
+                3039
+            ]
+        },
+        {
+            "id": "Zone_\u009b",
+            "integration_score": 0.07,
+            "area": 22318.5,
+            "centroid": [
+                5924,
+                3052
+            ]
+        },
+        {
+            "id": "Zone_\u009c",
+            "integration_score": 0.052,
+            "area": 8044.5,
+            "centroid": [
+                6257,
+                2921
+            ]
+        },
+        {
+            "id": "Zone_\u009d",
+            "integration_score": 0.059,
+            "area": 5526.0,
+            "centroid": [
+                5978,
+                2892
+            ]
+        },
+        {
+            "id": "Zone_\u009e",
+            "integration_score": 0.0,
+            "area": 8269.0,
+            "centroid": [
+                2639,
+                2800
+            ]
+        },
+        {
+            "id": "Zone_\u009f",
+            "integration_score": 0.058,
+            "area": 8419.5,
+            "centroid": [
+                5958,
+                2791
+            ]
+        },
+        {
+            "id": "Zone_\u00a0",
+            "integration_score": 0.066,
+            "area": 10864.0,
+            "centroid": [
+                5849,
+                2799
+            ]
+        },
+        {
+            "id": "Zone_\u00a1",
+            "integration_score": 0.01,
+            "area": 22708.5,
+            "centroid": [
+                1874,
+                2794
+            ]
+        },
+        {
+            "id": "Zone_\u00a2",
+            "integration_score": 0.006,
+            "area": 7272.0,
+            "centroid": [
+                1041,
+                2738
+            ]
+        },
+        {
+            "id": "Zone_\u00a3",
+            "integration_score": 0.056,
+            "area": 137190.0,
+            "centroid": [
+                3878,
+                2904
+            ]
+        },
+        {
+            "id": "Zone_\u00a4",
+            "integration_score": 0.012,
+            "area": 38964.5,
+            "centroid": [
+                2217,
+                2798
+            ]
+        },
+        {
+            "id": "Zone_\u00a5",
+            "integration_score": 0.006,
+            "area": 5823.5,
+            "centroid": [
+                1314,
+                2727
+            ]
+        },
+        {
+            "id": "Zone_\u00a6",
+            "integration_score": 0.071,
+            "area": 131528.5,
+            "centroid": [
+                4677,
+                2902
+            ]
+        },
+        {
+            "id": "Zone_\u00a7",
+            "integration_score": 0.063,
+            "area": 138771.5,
+            "centroid": [
+                4272,
+                2902
+            ]
+        },
+        {
+            "id": "Zone_\u00a8",
+            "integration_score": 0.076,
+            "area": 129183.5,
+            "centroid": [
+                5080,
+                2899
+            ]
+        },
+        {
+            "id": "Zone_\u00a9",
+            "integration_score": 0.046,
+            "area": 24641.5,
+            "centroid": [
+                6220,
+                2777
+            ]
+        },
+        {
+            "id": "Zone_\u00aa",
+            "integration_score": 0.057,
+            "area": 5073.0,
+            "centroid": [
+                5867,
+                2684
+            ]
+        },
+        {
+            "id": "Zone_\u00ab",
+            "integration_score": 0.06,
+            "area": 7532.0,
+            "centroid": [
+                4746,
+                2618
+            ]
+        },
+        {
+            "id": "Zone_\u00ac",
+            "integration_score": 0.009,
+            "area": 12583.5,
+            "centroid": [
+                1171,
+                2632
+            ]
+        },
+        {
+            "id": "Zone_\u00ad",
+            "integration_score": 0.006,
+            "area": 8603.5,
+            "centroid": [
+                1536,
+                2605
+            ]
+        },
+        {
+            "id": "Zone_\u00ae",
+            "integration_score": 0.063,
+            "area": 5667.5,
+            "centroid": [
+                5161,
+                2596
+            ]
+        },
+        {
+            "id": "Zone_\u00af",
+            "integration_score": 0.014,
+            "area": 10792.5,
+            "centroid": [
+                1973,
+                2607
+            ]
+        },
+        {
+            "id": "Zone_\u00b0",
+            "integration_score": 0.01,
+            "area": 10592.5,
+            "centroid": [
+                1857,
+                2600
+            ]
+        },
+        {
+            "id": "Zone_\u00b1",
+            "integration_score": 0.052,
+            "area": 7290.0,
+            "centroid": [
+                4610,
+                2582
+            ]
+        },
+        {
+            "id": "Zone_\u00b2",
+            "integration_score": 0.079,
+            "area": 162014.0,
+            "centroid": [
+                5530,
+                2785
+            ]
+        },
+        {
+            "id": "Zone_\u00b3",
+            "integration_score": 0.041,
+            "area": 15060.0,
+            "centroid": [
+                6258,
+                2558
+            ]
+        },
+        {
+            "id": "Zone_\u00b4",
+            "integration_score": 0.066,
+            "area": 13600.0,
+            "centroid": [
+                5862,
+                2546
+            ]
+        },
+        {
+            "id": "Zone_\u00b5",
+            "integration_score": 0.009,
+            "area": 6032.0,
+            "centroid": [
+                1496,
+                2504
+            ]
+        },
+        {
+            "id": "Zone_\u00b6",
+            "integration_score": 0.063,
+            "area": 24591.0,
+            "centroid": [
+                5031,
+                2560
+            ]
+        },
+        {
+            "id": "Zone_\u00b7",
+            "integration_score": 0.052,
+            "area": 6541.5,
+            "centroid": [
+                4746,
+                2503
+            ]
+        },
+        {
+            "id": "Zone_\u00b8",
+            "integration_score": 0.074,
+            "area": 6903.0,
+            "centroid": [
+                5557,
+                2452
+            ]
+        },
+        {
+            "id": "Zone_\u00b9",
+            "integration_score": 0.006,
+            "area": 5642.0,
+            "centroid": [
+                1447,
+                2409
+            ]
+        },
+        {
+            "id": "Zone_\u00ba",
+            "integration_score": 0.048,
+            "area": 5243.5,
+            "centroid": [
+                4069,
+                2413
+            ]
+        },
+        {
+            "id": "Zone_\u00bb",
+            "integration_score": 0.07,
+            "area": 6258.5,
+            "centroid": [
+                5430,
+                2403
+            ]
+        },
+        {
+            "id": "Zone_\u00bc",
+            "integration_score": 0.056,
+            "area": 7756.5,
+            "centroid": [
+                5887,
+                2375
+            ]
+        },
+        {
+            "id": "Zone_\u00bd",
+            "integration_score": 0.0,
+            "area": 5976.5,
+            "centroid": [
+                1858,
+                2381
+            ]
+        },
+        {
+            "id": "Zone_\u00be",
+            "integration_score": 0.069,
+            "area": 7636.0,
+            "centroid": [
+                5577,
+                2363
+            ]
+        },
+        {
+            "id": "Zone_\u00bf",
+            "integration_score": 0.054,
+            "area": 48586.5,
+            "centroid": [
+                4233,
+                2489
+            ]
+        },
+        {
+            "id": "Zone_\u00c0",
+            "integration_score": 0.037,
+            "area": 8730.5,
+            "centroid": [
+                6273,
+                2370
+            ]
+        },
+        {
+            "id": "Zone_\u00c1",
+            "integration_score": 0.049,
+            "area": 63908.5,
+            "centroid": [
+                3868,
+                2474
+            ]
+        },
+        {
+            "id": "Zone_\u00c2",
+            "integration_score": 0.008,
+            "area": 62053.5,
+            "centroid": [
+                2297,
+                2473
+            ]
+        },
+        {
+            "id": "Zone_\u00c3",
+            "integration_score": 0.046,
+            "area": 6747.0,
+            "centroid": [
+                6257,
+                2172
+            ]
+        },
+        {
+            "id": "Zone_\u00c4",
+            "integration_score": 0.0,
+            "area": 8780.0,
+            "centroid": [
+                4230,
+                2120
+            ]
+        },
+        {
+            "id": "Zone_\u00c5",
+            "integration_score": 0.057,
+            "area": 6970.5,
+            "centroid": [
+                5831,
+                2098
+            ]
+        },
+        {
+            "id": "Zone_\u00c6",
+            "integration_score": 0.052,
+            "area": 5037.5,
+            "centroid": [
+                6244,
+                2090
+            ]
+        },
+        {
+            "id": "Zone_\u00c7",
+            "integration_score": 0.008,
+            "area": 55197.5,
+            "centroid": [
+                2257,
+                2074
+            ]
+        },
+        {
+            "id": "Zone_\u00c8",
+            "integration_score": 0.052,
+            "area": 10573.5,
+            "centroid": [
+                6106,
+                1991
+            ]
+        },
+        {
+            "id": "Zone_\u00c9",
+            "integration_score": 0.052,
+            "area": 14554.5,
+            "centroid": [
+                6258,
+                1937
+            ]
+        },
+        {
+            "id": "Zone_\u00ca",
+            "integration_score": 0.0,
+            "area": 6629.5,
+            "centroid": [
+                3006,
+                1882
+            ]
+        },
+        {
+            "id": "Zone_\u00cb",
+            "integration_score": 0.052,
+            "area": 6300.0,
+            "centroid": [
+                6111,
+                1868
+            ]
+        },
+        {
+            "id": "Zone_\u00cc",
+            "integration_score": 0.009,
+            "area": 53949.0,
+            "centroid": [
+                2686,
+                1964
+            ]
+        },
+        {
+            "id": "Zone_\u00cd",
+            "integration_score": 0.055,
+            "area": 5254.0,
+            "centroid": [
+                5346,
+                1767
+            ]
+        },
+        {
+            "id": "Zone_\u00ce",
+            "integration_score": 0.012,
+            "area": 25641.5,
+            "centroid": [
+                2307,
+                1798
+            ]
+        },
+        {
+            "id": "Zone_\u00cf",
+            "integration_score": 0.0,
+            "area": 53930.5,
+            "centroid": [
+                3482,
+                1870
+            ]
+        },
+        {
+            "id": "Zone_\u00d0",
+            "integration_score": 0.0,
+            "area": 124597.5,
+            "centroid": [
+                3857,
+                1936
+            ]
+        },
+        {
+            "id": "Zone_\u00d1",
+            "integration_score": 0.048,
+            "area": 81011.0,
+            "centroid": [
+                4727,
+                1906
+            ]
+        },
+        {
+            "id": "Zone_\u00d2",
+            "integration_score": 0.055,
+            "area": 100008.0,
+            "centroid": [
+                5076,
+                1919
+            ]
+        },
+        {
+            "id": "Zone_\u00d3",
+            "integration_score": 0.009,
+            "area": 5787.5,
+            "centroid": [
+                2793,
+                1666
+            ]
+        },
+        {
+            "id": "Zone_\u00d4",
+            "integration_score": 0.014,
+            "area": 39585.5,
+            "centroid": [
+                2552,
+                1717
+            ]
+        },
+        {
+            "id": "Zone_\u00d5",
+            "integration_score": 0.065,
+            "area": 217553.0,
+            "centroid": [
+                5529,
+                1933
+            ]
+        },
+        {
+            "id": "Zone_\u00d6",
+            "integration_score": 0.0,
+            "area": 6604.0,
+            "centroid": [
+                3476,
+                1538
+            ]
+        },
+        {
+            "id": "Zone_\u00d7",
+            "integration_score": 0.058,
+            "area": 24063.0,
+            "centroid": [
+                5687,
+                1504
+            ]
+        },
+        {
+            "id": "Zone_\u00d8",
+            "integration_score": 0.06,
+            "area": 133581.5,
+            "centroid": [
+                6047,
+                1705
+            ]
+        },
+        {
+            "id": "Zone_\u00d9",
+            "integration_score": 0.016,
+            "area": 37696.0,
+            "centroid": [
+                3817,
+                1459
+            ]
+        },
+        {
+            "id": "Zone_\u00da",
+            "integration_score": 0.052,
+            "area": 21916.0,
+            "centroid": [
+                5903,
+                1346
+            ]
+        },
+        {
+            "id": "Zone_\u00db",
+            "integration_score": 0.053,
+            "area": 34291.5,
+            "centroid": [
+                6258,
+                1442
+            ]
+        },
+        {
+            "id": "Zone_\u00dc",
+            "integration_score": 0.009,
+            "area": 8965.5,
+            "centroid": [
+                1037,
+                1306
+            ]
+        },
+        {
+            "id": "Zone_\u00dd",
+            "integration_score": 0.014,
+            "area": 8993.0,
+            "centroid": [
+                1157,
+                1277
+            ]
+        },
+        {
+            "id": "Zone_\u00de",
+            "integration_score": 0.018,
+            "area": 7931.5,
+            "centroid": [
+                1572,
+                1271
+            ]
+        },
+        {
+            "id": "Zone_\u00df",
+            "integration_score": 0.046,
+            "area": 5437.5,
+            "centroid": [
+                5826,
+                1236
+            ]
+        },
+        {
+            "id": "Zone_\u00e0",
+            "integration_score": 0.048,
+            "area": 5407.5,
+            "centroid": [
+                6256,
+                1219
+            ]
+        },
+        {
+            "id": "Zone_\u00e1",
+            "integration_score": 0.019,
+            "area": 59966.5,
+            "centroid": [
+                3619,
+                1308
+            ]
+        },
+        {
+            "id": "Zone_\u00e2",
+            "integration_score": 0.02,
+            "area": 15833.5,
+            "centroid": [
+                3911,
+                1223
+            ]
+        },
+        {
+            "id": "Zone_\u00e3",
+            "integration_score": 0.0,
+            "area": 79664.5,
+            "centroid": [
+                4693,
+                1320
+            ]
+        },
+        {
+            "id": "Zone_\u00e4",
+            "integration_score": 0.0,
+            "area": 5891.5,
+            "centroid": [
+                3018,
+                1151
+            ]
+        },
+        {
+            "id": "Zone_\u00e5",
+            "integration_score": 0.009,
+            "area": 5191.0,
+            "centroid": [
+                1021,
+                1143
+            ]
+        },
+        {
+            "id": "Zone_\u00e6",
+            "integration_score": 0.013,
+            "area": 17402.5,
+            "centroid": [
+                1404,
+                1190
+            ]
+        },
+        {
+            "id": "Zone_\u00e7",
+            "integration_score": 0.018,
+            "area": 5973.5,
+            "centroid": [
+                1513,
+                1138
+            ]
+        },
+        {
+            "id": "Zone_\u00e8",
+            "integration_score": 0.012,
+            "area": 8915.0,
+            "centroid": [
+                1181,
+                1139
+            ]
+        },
+        {
+            "id": "Zone_\u00e9",
+            "integration_score": 0.019,
+            "area": 8157.5,
+            "centroid": [
+                4026,
+                1137
+            ]
+        },
+        {
+            "id": "Zone_\u00ea",
+            "integration_score": 0.043,
+            "area": 15005.0,
+            "centroid": [
+                6244,
+                1111
+            ]
+        },
+        {
+            "id": "Zone_\u00eb",
+            "integration_score": 0.044,
+            "area": 19285.0,
+            "centroid": [
+                6068,
+                1115
+            ]
+        },
+        {
+            "id": "Zone_\u00ec",
+            "integration_score": 0.004,
+            "area": 9308.5,
+            "centroid": [
+                2444,
+                1061
+            ]
+        },
+        {
+            "id": "Zone_\u00ed",
+            "integration_score": 0.008,
+            "area": 6575.0,
+            "centroid": [
+                1192,
+                1032
+            ]
+        },
+        {
+            "id": "Zone_\u00ee",
+            "integration_score": 0.036,
+            "area": 5159.5,
+            "centroid": [
+                5861,
+                1017
+            ]
+        },
+        {
+            "id": "Zone_\u00ef",
+            "integration_score": 0.023,
+            "area": 47609.5,
+            "centroid": [
+                1686,
+                1077
+            ]
+        },
+        {
+            "id": "Zone_\u00f0",
+            "integration_score": 0.039,
+            "area": 10181.0,
+            "centroid": [
+                6265,
+                942
+            ]
+        },
+        {
+            "id": "Zone_\u00f1",
+            "integration_score": 0.004,
+            "area": 209549.5,
+            "centroid": [
+                2643,
+                1188
+            ]
+        },
+        {
+            "id": "Zone_\u00f2",
+            "integration_score": 0.017,
+            "area": 6239.0,
+            "centroid": [
+                1327,
+                898
+            ]
+        },
+        {
+            "id": "Zone_\u00f3",
+            "integration_score": 0.006,
+            "area": 33336.5,
+            "centroid": [
+                4595,
+                948
+            ]
+        },
+        {
+            "id": "Zone_\u00f4",
+            "integration_score": 0.006,
+            "area": 6906.5,
+            "centroid": [
+                4885,
+                885
+            ]
+        },
+        {
+            "id": "Zone_\u00f5",
+            "integration_score": 0.052,
+            "area": 136280.0,
+            "centroid": [
+                5531,
+                1105
+            ]
+        },
+        {
+            "id": "Zone_\u00f6",
+            "integration_score": 0.009,
+            "area": 10754.0,
+            "centroid": [
+                4778,
+                885
+            ]
+        },
+        {
+            "id": "Zone_\u00f7",
+            "integration_score": 0.019,
+            "area": 22358.0,
+            "centroid": [
+                1901,
+                923
+            ]
+        },
+        {
+            "id": "Zone_\u00f8",
+            "integration_score": 0.023,
+            "area": 36565.0,
+            "centroid": [
+                1597,
+                908
+            ]
+        },
+        {
+            "id": "Zone_\u00f9",
+            "integration_score": 0.04,
+            "area": 22345.5,
+            "centroid": [
+                6011,
+                920
+            ]
+        },
+        {
+            "id": "Zone_\u00fa",
+            "integration_score": 0.017,
+            "area": 5757.5,
+            "centroid": [
+                1361,
+                814
+            ]
+        },
+        {
+            "id": "Zone_\u00fb",
+            "integration_score": 0.004,
+            "area": 12670.5,
+            "centroid": [
+                663,
+                851
+            ]
+        },
+        {
+            "id": "Zone_\u00fc",
+            "integration_score": 0.019,
+            "area": 5061.5,
+            "centroid": [
+                3313,
+                774
+            ]
+        },
+        {
+            "id": "Zone_\u00fd",
+            "integration_score": 0.036,
+            "area": 6510.0,
+            "centroid": [
+                6024,
+                769
+            ]
+        },
+        {
+            "id": "Zone_\u00fe",
+            "integration_score": 0.009,
+            "area": 14582.0,
+            "centroid": [
+                5129,
+                711
+            ]
+        },
+        {
+            "id": "Zone_\u00ff",
+            "integration_score": 0.004,
+            "area": 10945.5,
+            "centroid": [
+                669,
+                715
+            ]
+        },
+        {
+            "id": "Zone_\u0100",
+            "integration_score": 0.033,
+            "area": 8811.5,
+            "centroid": [
+                6010,
+                683
+            ]
+        },
+        {
+            "id": "Zone_\u0101",
+            "integration_score": 0.0,
+            "area": 5254.0,
+            "centroid": [
+                2055,
+                667
+            ]
+        },
+        {
+            "id": "Zone_\u0102",
+            "integration_score": 0.0,
+            "area": 9525.5,
+            "centroid": [
+                2710,
+                685
+            ]
+        },
+        {
+            "id": "Zone_\u0103",
+            "integration_score": 0.017,
+            "area": 37942.0,
+            "centroid": [
+                1569,
+                721
+            ]
+        },
+        {
+            "id": "Zone_\u0104",
+            "integration_score": 0.024,
+            "area": 189081.5,
+            "centroid": [
+                3735,
+                891
+            ]
+        },
+        {
+            "id": "Zone_\u0105",
+            "integration_score": 0.022,
+            "area": 15316.0,
+            "centroid": [
+                4178,
+                686
+            ]
+        },
+        {
+            "id": "Zone_\u0106",
+            "integration_score": 0.012,
+            "area": 7553.0,
+            "centroid": [
+                4492,
+                658
+            ]
+        },
+        {
+            "id": "Zone_\u0107",
+            "integration_score": 0.0,
+            "area": 5869.5,
+            "centroid": [
+                6252,
+                640
+            ]
+        },
+        {
+            "id": "Zone_\u0108",
+            "integration_score": 0.031,
+            "area": 12624.0,
+            "centroid": [
+                5851,
+                595
+            ]
+        },
+        {
+            "id": "Zone_\u0109",
+            "integration_score": 0.027,
+            "area": 5803.5,
+            "centroid": [
+                4086,
+                536
+            ]
+        },
+        {
+            "id": "Zone_\u010a",
+            "integration_score": 0.014,
+            "area": 12315.0,
+            "centroid": [
+                4590,
+                557
+            ]
+        },
+        {
+            "id": "Zone_\u010b",
+            "integration_score": 0.018,
+            "area": 34729.5,
+            "centroid": [
+                4697,
+                612
+            ]
+        },
+        {
+            "id": "Zone_\u010c",
+            "integration_score": 0.014,
+            "area": 34006.5,
+            "centroid": [
+                4966,
+                562
+            ]
+        },
+        {
+            "id": "Zone_\u010d",
+            "integration_score": 0.031,
+            "area": 14316.5,
+            "centroid": [
+                6011,
+                503
+            ]
+        },
+        {
+            "id": "Zone_\u010e",
+            "integration_score": 0.004,
+            "area": 11027.0,
+            "centroid": [
+                1213,
+                431
+            ]
+        },
+        {
+            "id": "Zone_\u010f",
+            "integration_score": 0.0,
+            "area": 5123.5,
+            "centroid": [
+                4397,
+                404
+            ]
+        },
+        {
+            "id": "Zone_\u0110",
+            "integration_score": 0.0,
+            "area": 15083.5,
+            "centroid": [
+                5662,
+                454
+            ]
+        },
+        {
+            "id": "Zone_\u0111",
+            "integration_score": 0.004,
+            "area": 10187.5,
+            "centroid": [
+                1075,
+                426
+            ]
+        },
+        {
+            "id": "Zone_\u0112",
+            "integration_score": 0.012,
+            "area": 6337.0,
+            "centroid": [
+                4536,
+                398
+            ]
+        },
+        {
+            "id": "Zone_\u0113",
+            "integration_score": 0.029,
+            "area": 23663.0,
+            "centroid": [
+                4049,
+                442
+            ]
+        },
+        {
+            "id": "Zone_\u0114",
+            "integration_score": 0.0,
+            "area": 5709.5,
+            "centroid": [
+                2410,
+                390
+            ]
+        },
+        {
+            "id": "Zone_\u0115",
+            "integration_score": 0.028,
+            "area": 8898.0,
+            "centroid": [
+                3711,
+                400
+            ]
+        },
+        {
+            "id": "Zone_\u0116",
+            "integration_score": 0.025,
+            "area": 7560.0,
+            "centroid": [
+                3586,
+                413
+            ]
+        },
+        {
+            "id": "Zone_\u0117",
+            "integration_score": 0.016,
+            "area": 23909.0,
+            "centroid": [
+                3197,
+                416
+            ]
+        },
+        {
+            "id": "Zone_\u0118",
+            "integration_score": 0.0,
+            "area": 7795.5,
+            "centroid": [
+                6281,
+                398
+            ]
+        },
+        {
+            "id": "Zone_\u0119",
+            "integration_score": 0.028,
+            "area": 5398.0,
+            "centroid": [
+                6032,
+                362
+            ]
+        },
+        {
+            "id": "Zone_\u011a",
+            "integration_score": 0.022,
+            "area": 6946.5,
+            "centroid": [
+                3485,
+                287
+            ]
+        },
+        {
+            "id": "Zone_\u011b",
+            "integration_score": 0.0,
+            "area": 5520.0,
+            "centroid": [
+                4846,
+                290
+            ]
+        },
+        {
+            "id": "Zone_\u011c",
+            "integration_score": 0.026,
+            "area": 5064.5,
+            "centroid": [
+                3630,
+                285
+            ]
+        },
+        {
+            "id": "Zone_\u011d",
+            "integration_score": 0.016,
+            "area": 7916.0,
+            "centroid": [
+                3292,
+                284
+            ]
+        },
+        {
+            "id": "Zone_\u011e",
+            "integration_score": 0.03,
+            "area": 8092.5,
+            "centroid": [
+                3865,
+                282
+            ]
+        },
+        {
+            "id": "Zone_\u011f",
+            "integration_score": 0.028,
+            "area": 7218.5,
+            "centroid": [
+                3755,
+                278
+            ]
+        },
+        {
+            "id": "Zone_\u0120",
+            "integration_score": 0.0,
+            "area": 6586.0,
+            "centroid": [
+                1321,
+                267
+            ]
+        },
+        {
+            "id": "Zone_\u0121",
+            "integration_score": 0.025,
+            "area": 6082.5,
+            "centroid": [
+                3659,
+                207
+            ]
+        },
+        {
+            "id": "Zone_\u0122",
+            "integration_score": 0.022,
+            "area": 7417.0,
+            "centroid": [
+                3534,
+                200
+            ]
+        },
+        {
+            "id": "Zone_\u0123",
+            "integration_score": 0.019,
+            "area": 13530.5,
+            "centroid": [
+                3381,
+                223
+            ]
+        },
+        {
+            "id": "Zone_\u0124",
+            "integration_score": 0.025,
+            "area": 29922.0,
+            "centroid": [
+                4004,
+                232
+            ]
+        },
+        {
+            "id": "Zone_\u0125",
+            "integration_score": 0.0,
+            "area": 9708.0,
+            "centroid": [
+                2172,
+                188
+            ]
+        }
+    ],
+    "edges": [
+        [
+            "Zone_A",
+            "Zone__"
+        ],
+        [
+            "Zone_B",
+            "Zone_G"
+        ],
+        [
+            "Zone_B",
+            "Zone_S"
+        ],
+        [
+            "Zone_C",
+            "Zone_L"
+        ],
+        [
+            "Zone_C",
+            "Zone_N"
+        ],
+        [
+            "Zone_C",
+            "Zone__"
+        ],
+        [
+            "Zone_D",
+            "Zone_E"
+        ],
+        [
+            "Zone_D",
+            "Zone_T"
+        ],
+        [
+            "Zone_D",
+            "Zone_\\"
+        ],
+        [
+            "Zone_E",
+            "Zone_F"
+        ],
+        [
+            "Zone_E",
+            "Zone_T"
+        ],
+        [
+            "Zone_E",
+            "Zone_Y"
+        ],
+        [
+            "Zone_E",
+            "Zone_Z"
+        ],
+        [
+            "Zone_F",
+            "Zone_Y"
+        ],
+        [
+            "Zone_F",
+            "Zone_Z"
+        ],
+        [
+            "Zone_F",
+            "Zone_["
+        ],
+        [
+            "Zone_G",
+            "Zone_]"
+        ],
+        [
+            "Zone_H",
+            "Zone_J"
+        ],
+        [
+            "Zone_H",
+            "Zone_P"
+        ],
+        [
+            "Zone_H",
+            "Zone_U"
+        ],
+        [
+            "Zone_I",
+            "Zone_R"
+        ],
+        [
+            "Zone_I",
+            "Zone_X"
+        ],
+        [
+            "Zone_J",
+            "Zone_P"
+        ],
+        [
+            "Zone_J",
+            "Zone_U"
+        ],
+        [
+            "Zone_K",
+            "Zone_N"
+        ],
+        [
+            "Zone_K",
+            "Zone_S"
+        ],
+        [
+            "Zone_L",
+            "Zone_N"
+        ],
+        [
+            "Zone_L",
+            "Zone_W"
+        ],
+        [
+            "Zone_L",
+            "Zone_a"
+        ],
+        [
+            "Zone_M",
+            "Zone__"
+        ],
+        [
+            "Zone_N",
+            "Zone_a"
+        ],
+        [
+            "Zone_O",
+            "Zone_V"
+        ],
+        [
+            "Zone_O",
+            "Zone_c"
+        ],
+        [
+            "Zone_P",
+            "Zone_U"
+        ],
+        [
+            "Zone_Q",
+            "Zone_U"
+        ],
+        [
+            "Zone_R",
+            "Zone_`"
+        ],
+        [
+            "Zone_T",
+            "Zone_Z"
+        ],
+        [
+            "Zone_T",
+            "Zone_\\"
+        ],
+        [
+            "Zone_W",
+            "Zone__"
+        ],
+        [
+            "Zone_W",
+            "Zone_a"
+        ],
+        [
+            "Zone_Y",
+            "Zone_Z"
+        ],
+        [
+            "Zone_Y",
+            "Zone_["
+        ],
+        [
+            "Zone_Y",
+            "Zone_d"
+        ],
+        [
+            "Zone_Z",
+            "Zone_d"
+        ],
+        [
+            "Zone_[",
+            "Zone_]"
+        ],
+        [
+            "Zone_]",
+            "Zone_^"
+        ],
+        [
+            "Zone_b",
+            "Zone_\u007f"
+        ],
+        [
+            "Zone_c",
+            "Zone_f"
+        ],
+        [
+            "Zone_e",
+            "Zone_n"
+        ],
+        [
+            "Zone_f",
+            "Zone_o"
+        ],
+        [
+            "Zone_h",
+            "Zone_j"
+        ],
+        [
+            "Zone_p",
+            "Zone_w"
+        ],
+        [
+            "Zone_p",
+            "Zone_z"
+        ],
+        [
+            "Zone_q",
+            "Zone_x"
+        ],
+        [
+            "Zone_u",
+            "Zone_w"
+        ],
+        [
+            "Zone_u",
+            "Zone_\u0084"
+        ],
+        [
+            "Zone_w",
+            "Zone_\u0082"
+        ],
+        [
+            "Zone_w",
+            "Zone_\u0083"
+        ],
+        [
+            "Zone_w",
+            "Zone_\u0084"
+        ],
+        [
+            "Zone_y",
+            "Zone_\u0081"
+        ],
+        [
+            "Zone_z",
+            "Zone_}"
+        ],
+        [
+            "Zone_z",
+            "Zone_\u0080"
+        ],
+        [
+            "Zone_z",
+            "Zone_\u0082"
+        ],
+        [
+            "Zone_|",
+            "Zone_\u0081"
+        ],
+        [
+            "Zone_|",
+            "Zone_\u0084"
+        ],
+        [
+            "Zone_}",
+            "Zone_\u0080"
+        ],
+        [
+            "Zone_\u0080",
+            "Zone_\u0082"
+        ],
+        [
+            "Zone_\u0080",
+            "Zone_\u008b"
+        ],
+        [
+            "Zone_\u0081",
+            "Zone_\u0087"
+        ],
+        [
+            "Zone_\u0082",
+            "Zone_\u0083"
+        ],
+        [
+            "Zone_\u0082",
+            "Zone_\u0088"
+        ],
+        [
+            "Zone_\u0082",
+            "Zone_\u008b"
+        ],
+        [
+            "Zone_\u0083",
+            "Zone_\u0084"
+        ],
+        [
+            "Zone_\u0083",
+            "Zone_\u0088"
+        ],
+        [
+            "Zone_\u0084",
+            "Zone_\u008e"
+        ],
+        [
+            "Zone_\u0084",
+            "Zone_\u0096"
+        ],
+        [
+            "Zone_\u0084",
+            "Zone_\u0097"
+        ],
+        [
+            "Zone_\u0086",
+            "Zone_\u008c"
+        ],
+        [
+            "Zone_\u0087",
+            "Zone_\u008d"
+        ],
+        [
+            "Zone_\u008c",
+            "Zone_\u0099"
+        ],
+        [
+            "Zone_\u008e",
+            "Zone_\u0092"
+        ],
+        [
+            "Zone_\u008e",
+            "Zone_\u0097"
+        ],
+        [
+            "Zone_\u008f",
+            "Zone_\u0091"
+        ],
+        [
+            "Zone_\u008f",
+            "Zone_\u0098"
+        ],
+        [
+            "Zone_\u0090",
+            "Zone_\u0093"
+        ],
+        [
+            "Zone_\u0090",
+            "Zone_\u009b"
+        ],
+        [
+            "Zone_\u0091",
+            "Zone_\u0098"
+        ],
+        [
+            "Zone_\u0091",
+            "Zone_\u009b"
+        ],
+        [
+            "Zone_\u0094",
+            "Zone_\u0095"
+        ],
+        [
+            "Zone_\u0095",
+            "Zone_\u00a8"
+        ],
+        [
+            "Zone_\u0096",
+            "Zone_\u0097"
+        ],
+        [
+            "Zone_\u0096",
+            "Zone_\u00a3"
+        ],
+        [
+            "Zone_\u0096",
+            "Zone_\u00a7"
+        ],
+        [
+            "Zone_\u0097",
+            "Zone_\u00a3"
+        ],
+        [
+            "Zone_\u0097",
+            "Zone_\u00a6"
+        ],
+        [
+            "Zone_\u0097",
+            "Zone_\u00a7"
+        ],
+        [
+            "Zone_\u0098",
+            "Zone_\u0099"
+        ],
+        [
+            "Zone_\u0098",
+            "Zone_\u009b"
+        ],
+        [
+            "Zone_\u0099",
+            "Zone_\u009a"
+        ],
+        [
+            "Zone_\u009a",
+            "Zone_\u009b"
+        ],
+        [
+            "Zone_\u009a",
+            "Zone_\u009c"
+        ],
+        [
+            "Zone_\u009b",
+            "Zone_\u009d"
+        ],
+        [
+            "Zone_\u009b",
+            "Zone_\u00b2"
+        ],
+        [
+            "Zone_\u009c",
+            "Zone_\u00a9"
+        ],
+        [
+            "Zone_\u009d",
+            "Zone_\u009f"
+        ],
+        [
+            "Zone_\u009d",
+            "Zone_\u00a0"
+        ],
+        [
+            "Zone_\u009f",
+            "Zone_\u00a0"
+        ],
+        [
+            "Zone_\u009f",
+            "Zone_\u00aa"
+        ],
+        [
+            "Zone_\u00a0",
+            "Zone_\u00aa"
+        ],
+        [
+            "Zone_\u00a0",
+            "Zone_\u00b2"
+        ],
+        [
+            "Zone_\u00a1",
+            "Zone_\u00af"
+        ],
+        [
+            "Zone_\u00a1",
+            "Zone_\u00b0"
+        ],
+        [
+            "Zone_\u00a2",
+            "Zone_\u00ac"
+        ],
+        [
+            "Zone_\u00a3",
+            "Zone_\u00a7"
+        ],
+        [
+            "Zone_\u00a3",
+            "Zone_\u00bf"
+        ],
+        [
+            "Zone_\u00a3",
+            "Zone_\u00c1"
+        ],
+        [
+            "Zone_\u00a4",
+            "Zone_\u00af"
+        ],
+        [
+            "Zone_\u00a4",
+            "Zone_\u00c2"
+        ],
+        [
+            "Zone_\u00a5",
+            "Zone_\u00ac"
+        ],
+        [
+            "Zone_\u00a6",
+            "Zone_\u00a7"
+        ],
+        [
+            "Zone_\u00a6",
+            "Zone_\u00a8"
+        ],
+        [
+            "Zone_\u00a6",
+            "Zone_\u00ab"
+        ],
+        [
+            "Zone_\u00a7",
+            "Zone_\u00bf"
+        ],
+        [
+            "Zone_\u00a8",
+            "Zone_\u00ae"
+        ],
+        [
+            "Zone_\u00a8",
+            "Zone_\u00b2"
+        ],
+        [
+            "Zone_\u00a8",
+            "Zone_\u00b6"
+        ],
+        [
+            "Zone_\u00a9",
+            "Zone_\u00b3"
+        ],
+        [
+            "Zone_\u00aa",
+            "Zone_\u00b4"
+        ],
+        [
+            "Zone_\u00ab",
+            "Zone_\u00b1"
+        ],
+        [
+            "Zone_\u00ab",
+            "Zone_\u00b7"
+        ],
+        [
+            "Zone_\u00ad",
+            "Zone_\u00b5"
+        ],
+        [
+            "Zone_\u00ae",
+            "Zone_\u00b6"
+        ],
+        [
+            "Zone_\u00af",
+            "Zone_\u00b0"
+        ],
+        [
+            "Zone_\u00b1",
+            "Zone_\u00b7"
+        ],
+        [
+            "Zone_\u00b2",
+            "Zone_\u00b4"
+        ],
+        [
+            "Zone_\u00b2",
+            "Zone_\u00b8"
+        ],
+        [
+            "Zone_\u00b2",
+            "Zone_\u00bb"
+        ],
+        [
+            "Zone_\u00b3",
+            "Zone_\u00c0"
+        ],
+        [
+            "Zone_\u00b4",
+            "Zone_\u00bc"
+        ],
+        [
+            "Zone_\u00b5",
+            "Zone_\u00b9"
+        ],
+        [
+            "Zone_\u00b8",
+            "Zone_\u00bb"
+        ],
+        [
+            "Zone_\u00b8",
+            "Zone_\u00be"
+        ],
+        [
+            "Zone_\u00ba",
+            "Zone_\u00bf"
+        ],
+        [
+            "Zone_\u00ba",
+            "Zone_\u00c1"
+        ],
+        [
+            "Zone_\u00be",
+            "Zone_\u00d5"
+        ],
+        [
+            "Zone_\u00c3",
+            "Zone_\u00c6"
+        ],
+        [
+            "Zone_\u00c5",
+            "Zone_\u00d5"
+        ],
+        [
+            "Zone_\u00c5",
+            "Zone_\u00d8"
+        ],
+        [
+            "Zone_\u00c6",
+            "Zone_\u00c8"
+        ],
+        [
+            "Zone_\u00c6",
+            "Zone_\u00c9"
+        ],
+        [
+            "Zone_\u00c6",
+            "Zone_\u00d8"
+        ],
+        [
+            "Zone_\u00c7",
+            "Zone_\u00ce"
+        ],
+        [
+            "Zone_\u00c8",
+            "Zone_\u00c9"
+        ],
+        [
+            "Zone_\u00c8",
+            "Zone_\u00cb"
+        ],
+        [
+            "Zone_\u00c8",
+            "Zone_\u00d8"
+        ],
+        [
+            "Zone_\u00c9",
+            "Zone_\u00cb"
+        ],
+        [
+            "Zone_\u00c9",
+            "Zone_\u00d8"
+        ],
+        [
+            "Zone_\u00cb",
+            "Zone_\u00d8"
+        ],
+        [
+            "Zone_\u00cc",
+            "Zone_\u00d4"
+        ],
+        [
+            "Zone_\u00cd",
+            "Zone_\u00d5"
+        ],
+        [
+            "Zone_\u00ce",
+            "Zone_\u00d4"
+        ],
+        [
+            "Zone_\u00d1",
+            "Zone_\u00d2"
+        ],
+        [
+            "Zone_\u00d2",
+            "Zone_\u00d5"
+        ],
+        [
+            "Zone_\u00d3",
+            "Zone_\u00d4"
+        ],
+        [
+            "Zone_\u00d5",
+            "Zone_\u00d7"
+        ],
+        [
+            "Zone_\u00d5",
+            "Zone_\u00d8"
+        ],
+        [
+            "Zone_\u00d7",
+            "Zone_\u00d8"
+        ],
+        [
+            "Zone_\u00d7",
+            "Zone_\u00da"
+        ],
+        [
+            "Zone_\u00d7",
+            "Zone_\u00f5"
+        ],
+        [
+            "Zone_\u00d8",
+            "Zone_\u00da"
+        ],
+        [
+            "Zone_\u00d8",
+            "Zone_\u00db"
+        ],
+        [
+            "Zone_\u00d8",
+            "Zone_\u00f5"
+        ],
+        [
+            "Zone_\u00d9",
+            "Zone_\u00e1"
+        ],
+        [
+            "Zone_\u00d9",
+            "Zone_\u00e2"
+        ],
+        [
+            "Zone_\u00da",
+            "Zone_\u00df"
+        ],
+        [
+            "Zone_\u00da",
+            "Zone_\u00f5"
+        ],
+        [
+            "Zone_\u00db",
+            "Zone_\u00e0"
+        ],
+        [
+            "Zone_\u00dc",
+            "Zone_\u00dd"
+        ],
+        [
+            "Zone_\u00dd",
+            "Zone_\u00e5"
+        ],
+        [
+            "Zone_\u00dd",
+            "Zone_\u00e8"
+        ],
+        [
+            "Zone_\u00de",
+            "Zone_\u00e6"
+        ],
+        [
+            "Zone_\u00de",
+            "Zone_\u00e7"
+        ],
+        [
+            "Zone_\u00de",
+            "Zone_\u00ef"
+        ],
+        [
+            "Zone_\u00df",
+            "Zone_\u00f5"
+        ],
+        [
+            "Zone_\u00e0",
+            "Zone_\u00ea"
+        ],
+        [
+            "Zone_\u00e0",
+            "Zone_\u00eb"
+        ],
+        [
+            "Zone_\u00e1",
+            "Zone_\u00e2"
+        ],
+        [
+            "Zone_\u00e1",
+            "Zone_\u0104"
+        ],
+        [
+            "Zone_\u00e2",
+            "Zone_\u00e9"
+        ],
+        [
+            "Zone_\u00e2",
+            "Zone_\u0104"
+        ],
+        [
+            "Zone_\u00e6",
+            "Zone_\u00e7"
+        ],
+        [
+            "Zone_\u00e7",
+            "Zone_\u00ef"
+        ],
+        [
+            "Zone_\u00e8",
+            "Zone_\u00ed"
+        ],
+        [
+            "Zone_\u00e9",
+            "Zone_\u0104"
+        ],
+        [
+            "Zone_\u00ea",
+            "Zone_\u00eb"
+        ],
+        [
+            "Zone_\u00ea",
+            "Zone_\u00f0"
+        ],
+        [
+            "Zone_\u00eb",
+            "Zone_\u00f9"
+        ],
+        [
+            "Zone_\u00ec",
+            "Zone_\u00f1"
+        ],
+        [
+            "Zone_\u00ee",
+            "Zone_\u00f9"
+        ],
+        [
+            "Zone_\u00ef",
+            "Zone_\u00f7"
+        ],
+        [
+            "Zone_\u00ef",
+            "Zone_\u00f8"
+        ],
+        [
+            "Zone_\u00f2",
+            "Zone_\u00f8"
+        ],
+        [
+            "Zone_\u00f2",
+            "Zone_\u00fa"
+        ],
+        [
+            "Zone_\u00f2",
+            "Zone_\u0103"
+        ],
+        [
+            "Zone_\u00f3",
+            "Zone_\u00f6"
+        ],
+        [
+            "Zone_\u00f4",
+            "Zone_\u00f6"
+        ],
+        [
+            "Zone_\u00f7",
+            "Zone_\u00f8"
+        ],
+        [
+            "Zone_\u00f8",
+            "Zone_\u00fa"
+        ],
+        [
+            "Zone_\u00f8",
+            "Zone_\u0103"
+        ],
+        [
+            "Zone_\u00f9",
+            "Zone_\u00fd"
+        ],
+        [
+            "Zone_\u00fa",
+            "Zone_\u0103"
+        ],
+        [
+            "Zone_\u00fb",
+            "Zone_\u00ff"
+        ],
+        [
+            "Zone_\u00fc",
+            "Zone_\u0104"
+        ],
+        [
+            "Zone_\u00fd",
+            "Zone_\u0100"
+        ],
+        [
+            "Zone_\u00fe",
+            "Zone_\u010c"
+        ],
+        [
+            "Zone_\u0100",
+            "Zone_\u0108"
+        ],
+        [
+            "Zone_\u0100",
+            "Zone_\u010d"
+        ],
+        [
+            "Zone_\u0104",
+            "Zone_\u0105"
+        ],
+        [
+            "Zone_\u0104",
+            "Zone_\u0109"
+        ],
+        [
+            "Zone_\u0105",
+            "Zone_\u0109"
+        ],
+        [
+            "Zone_\u0106",
+            "Zone_\u010a"
+        ],
+        [
+            "Zone_\u0106",
+            "Zone_\u010b"
+        ],
+        [
+            "Zone_\u0108",
+            "Zone_\u010d"
+        ],
+        [
+            "Zone_\u0109",
+            "Zone_\u0113"
+        ],
+        [
+            "Zone_\u010a",
+            "Zone_\u010b"
+        ],
+        [
+            "Zone_\u010a",
+            "Zone_\u0112"
+        ],
+        [
+            "Zone_\u010b",
+            "Zone_\u010c"
+        ],
+        [
+            "Zone_\u010b",
+            "Zone_\u0112"
+        ],
+        [
+            "Zone_\u010d",
+            "Zone_\u0119"
+        ],
+        [
+            "Zone_\u010e",
+            "Zone_\u0111"
+        ],
+        [
+            "Zone_\u0113",
+            "Zone_\u011e"
+        ],
+        [
+            "Zone_\u0113",
+            "Zone_\u0124"
+        ],
+        [
+            "Zone_\u0115",
+            "Zone_\u0116"
+        ],
+        [
+            "Zone_\u0115",
+            "Zone_\u011c"
+        ],
+        [
+            "Zone_\u0115",
+            "Zone_\u011e"
+        ],
+        [
+            "Zone_\u0115",
+            "Zone_\u011f"
+        ],
+        [
+            "Zone_\u0116",
+            "Zone_\u011a"
+        ],
+        [
+            "Zone_\u0116",
+            "Zone_\u011c"
+        ],
+        [
+            "Zone_\u0117",
+            "Zone_\u011d"
+        ],
+        [
+            "Zone_\u0117",
+            "Zone_\u0123"
+        ],
+        [
+            "Zone_\u011a",
+            "Zone_\u011c"
+        ],
+        [
+            "Zone_\u011a",
+            "Zone_\u0122"
+        ],
+        [
+            "Zone_\u011a",
+            "Zone_\u0123"
+        ],
+        [
+            "Zone_\u011c",
+            "Zone_\u011f"
+        ],
+        [
+            "Zone_\u011c",
+            "Zone_\u0121"
+        ],
+        [
+            "Zone_\u011c",
+            "Zone_\u0122"
+        ],
+        [
+            "Zone_\u011d",
+            "Zone_\u0123"
+        ],
+        [
+            "Zone_\u011e",
+            "Zone_\u011f"
+        ],
+        [
+            "Zone_\u011e",
+            "Zone_\u0124"
+        ],
+        [
+            "Zone_\u011f",
+            "Zone_\u0121"
+        ],
+        [
+            "Zone_\u0121",
+            "Zone_\u0122"
+        ],
+        [
+            "Zone_\u0122",
+            "Zone_\u0123"
+        ]
+    ],
+    "space_syntax": {
+        "most_integrated_room": "Zone_\u00b2"
+    }
+}
