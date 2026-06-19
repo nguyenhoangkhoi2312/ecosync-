@@ -1,3 +1,4 @@
 ultralytics>=8.0.0
 supervision
 opencv-python
+paho-mqtt==1.6.1
