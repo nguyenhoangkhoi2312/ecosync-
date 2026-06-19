@@ -159,7 +159,6 @@ ECON is currently in an incredibly advanced and polished prototype state. The fo
 ---
 
 # ECON: An Occupancy-Aware Digital Twin for Autonomous HVAC Optimization
-**Authors:** [Your Name / Team Engineer Boys]
 
 ## Abstract
 Traditional Building Management Systems (BMS) operate on rigid, pre-defined schedules, leading to significant energy waste cooling unoccupied zones. We propose **ECON**, a multi-layered Digital Twin architecture that transitions building HVAC and lighting management from schedule-based to demand-based optimization. By fusing state-of-the-art Computer Vision (YOLOv11, ByteTrack) at the Edge with an autonomous floorplan digitization pipeline (CubiCasa5K) and a high-performance thermodynamic physics engine, ECON dynamically models and adjusts the thermal equilibrium of a building in real-time. Recent field studies indicate that transitioning to occupancy-centric HVAC control commonly yields 10%–20% energy savings, with specific deployments achieving 15.8% to 17.6% reduction in HVAC consumption. This paper details the mathematical and computational methodologies driving the ECON system.
