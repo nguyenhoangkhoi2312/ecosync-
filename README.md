@@ -354,9 +354,9 @@ To ensure ECON operates as a deterministic, physical Digital Twin rather than a 
 ### 6.1 The 2R1C Lumped-Capacitance Thermodynamic Model
 While pure machine learning (ML) models often fail out-of-distribution during critical HVAC faults or thermal runaway events, a physical 2-Resistor, 1-Capacitor (2R1C) equivalent-circuit model guarantees thermodynamic energy conservation. Based on the fundamental heat-balance equations defined by ASHRAE (Kramer et al., 2012), each thermal zone simulates transient heat transfer between the external environment, the thermal mass of the walls ($C_{\text{wall}}$), and the internal air volume ($C_{\text{air}}$):
 
-\[ \frac{dT_{\text{air}}}{dt} = \frac{1}{C_{\text{air}}} \left[ \frac{T_{\text{wall}} - T_{\text{air}}}{R_{\text{in}}} + \dot{q}_{\text{int}} - \dot{q}_{\text{cool}} \right] \]
+$$ \frac{dT_{\text{air}}}{dt} = \frac{1}{C_{\text{air}}} \left[ \frac{T_{\text{wall}} - T_{\text{air}}}{R_{\text{in}}} + \dot{q}_{\text{int}} - \dot{q}_{\text{cool}} \right] $$
 
-\[ \frac{dT_{\text{wall}}}{dt} = \frac{1}{C_{\text{wall}}} \left[ \frac{T_{\text{out}} - T_{\text{wall}}}{R_{\text{out}}} - \frac{T_{\text{wall}} - T_{\text{air}}}{R_{\text{in}}} \right] \]
+$$ \frac{dT_{\text{wall}}}{dt} = \frac{1}{C_{\text{wall}}} \left[ \frac{T_{\text{out}} - T_{\text{wall}}}{R_{\text{out}}} - \frac{T_{\text{wall}} - T_{\text{air}}}{R_{\text{in}}} \right] $$
 
 Where:
 - $\dot{q}_{\text{int}}$ is the aggregate internal heat load (occupants + equipment + solar gain).
@@ -365,21 +365,21 @@ Where:
 ### 6.2 HVAC Cooling Capacity & Nominal Flow Normalization
 To prevent thermal drift across unequally sized zones, the engine dynamically sizes the baseline cooling capacity against each VAV's nominal design flow, ensuring the zone strictly holds its setpoint ($T_{\text{sp}}$) under steady-state conditions:
 
-\[ \dot{q}_{\text{cool}} = \left( \frac{\text{Flow}}{\text{Flow}_{\text{nom}}} \right) \cdot \dot{q}_{\text{total,nom}} \cdot \frac{T_{\text{air}} - 12.0}{T_{\text{sp}} - 12.0} \]
+$$ \dot{q}_{\text{cool}} = \left( \frac{\text{Flow}}{\text{Flow}_{\text{nom}}} \right) \cdot \dot{q}_{\text{total,nom}} \cdot \frac{T_{\text{air}} - 12.0}{T_{\text{sp}} - 12.0} $$
 
 This ensures that any reduction in airflow ($\text{Flow} < \text{Flow}_{\text{nom}}$)—whether driven by an occupancy setback or a mechanical damper fault—results in an immediate, mathematically sound drop in cooling capacity, driving the $T_{\text{air}}$ differential equation into a warming state.
 
 ### 6.3 Hardy Cross Fluid Network Solver
 When a VAV damper closes (e.g., due to a fault or an occupancy-driven setback), the static pressure in the shared ductwork shifts, inherently forcing more airflow into parallel zones. To accurately simulate these interdependent fluid dynamics, ECON relies on the iterative Hardy Cross method (Cross, 1936) to solve the non-linear pressure and flow distribution across the parallel VAV dampers connected to the central AHU:
 
-\[ \Delta Q = - \frac{\sum (K \cdot Q \cdot |Q|)}{\sum (2 \cdot K \cdot |Q|)} \]
+$$ \Delta Q = - \frac{\sum (K \cdot Q \cdot |Q|)}{\sum (2 \cdot K \cdot |Q|)} $$
 
 Solving the duct network dynamically is superior to assuming static individual VAV flows, as it allows the AI Auto-Pilot to train against realistic, cascading aerodynamic consequences that occur during peak load or mechanical failures.
 
 ### 6.4 Dynamic Coefficient of Performance (COP) Degradation
 The central chiller plant's cooling efficiency is not static. As the total sensible cooling load approaches the plant's mechanical limit, the Coefficient of Performance (COP) degrades according to an empirical strain curve:
 
-\[ COP = \max(2.2, \min(3.8, 3.6 - 0.35 \cdot \text{Strain})) \]
+$$ COP = \max(2.2, \min(3.8, 3.6 - 0.35 \cdot \text{Strain})) $$
 
 This couples the thermodynamic state to the electrical state, ensuring that thermal faults visibly degrade overall system health and spike the `$buildingLoadMW$` metric broadcasted to the dashboard.
 
@@ -407,4 +407,4 @@ Real-world field testing of occupancy-presence sensing has validated up to 17.6%
 12. Cross, H. (1936). *Analysis of Flow in Networks of Conduits or Conductors*. University of Illinois.
 13. Balaji, B., et al. (2016). *Brick: Towards a unified metadata schema for buildings*. BuildSys.
 14. Kramer, R., van Schijndel, A., & Schellen, H. (2012). *Simplified thermal and hygric building models: A literature review*. Frontiers of Architectural Research, 1(4), 318-325.
-14. Braun, J. E. (1990). *Reducing energy costs and peak electrical demand through building thermal mass*. ASHRAE Transactions, 96(2), 870-888.
+15. Braun, J. E. (1990). *Reducing energy costs and peak electrical demand through building thermal mass*. ASHRAE Transactions, 96(2), 870-888.
