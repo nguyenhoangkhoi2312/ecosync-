@@ -134,6 +134,61 @@ def touches_perimeter(poly_m, fw, fd, eps=1.0):
 
 
 # ---------------------------------------------------------------------------
+# 4b. Airflow domain — doors + windows in metric coords, consumed by the React
+# flow solver (flowfield.js) as `floor.airflowDomain`. Doors are the openings the
+# constrained airflow may pass through; windows are perimeter relief sinks. Emitting
+# them from the REAL plan means the digitized airflow matches the true layout instead
+# of the frontend's geometric fallback.
+# ---------------------------------------------------------------------------
+def shared_door(poly_a, poly_b, tol=1.0, min_overlap=1.2):
+    """Midpoint + tangent of the wall two rooms share, so one neat doorway can be
+    carved there. Tangent (tx,tz) is in the solver's local frame (z = depth - y)."""
+    edges = lambda p: [(p[i], p[(i + 1) % len(p)]) for i in range(len(p))]
+    for (a0, a1) in edges(poly_a):
+        for (b0, b1) in edges(poly_b):
+            # vertical shared edge: constant x, overlapping y
+            if abs(a0[0] - a1[0]) < tol and abs(b0[0] - b1[0]) < tol and abs(a0[0] - b0[0]) < tol:
+                lo = max(min(a0[1], a1[1]), min(b0[1], b1[1]))
+                hi = min(max(a0[1], a1[1]), max(b0[1], b1[1]))
+                if hi - lo > min_overlap:
+                    return {"x": round(a0[0], 2), "y": round((lo + hi) / 2, 2), "tx": 0, "tz": 1}
+            # horizontal shared edge: constant y, overlapping x
+            if abs(a0[1] - a1[1]) < tol and abs(b0[1] - b1[1]) < tol and abs(a0[1] - b0[1]) < tol:
+                lo = max(min(a0[0], a1[0]), min(b0[0], b1[0]))
+                hi = min(max(a0[0], a1[0]), max(b0[0], b1[0]))
+                if hi - lo > min_overlap:
+                    return {"x": round((lo + hi) / 2, 2), "y": round(a0[1], 2), "tx": 1, "tz": 0}
+    return None
+
+
+def perimeter_windows(fw, fd, spacing=6.0):
+    """Window centres along the rectangular envelope, matching the 3D facade cadence."""
+    wins = []
+    edges = [((0, 0), (fw, 0)), ((fw, 0), (fw, fd)), ((fw, fd), (0, fd)), ((0, fd), (0, 0))]
+    for (p0, p1) in edges:
+        ex, ey = p1[0] - p0[0], p1[1] - p0[1]
+        ln = (ex ** 2 + ey ** 2) ** 0.5
+        ux, uy = ex / ln, ey / ln
+        t = spacing / 2
+        while t < ln - spacing / 4:
+            wins.append({"x": round(p0[0] + ux * t, 2), "y": round(p0[1] + uy * t, 2)})
+            t += spacing
+    return wins
+
+
+def build_airflow_domain(zones, fw, fd):
+    doors = []
+    for i, z in enumerate(zones):
+        for j in z.get("adjacent_to_idx", []):
+            if j <= i or j >= len(zones):
+                continue  # j<=i dedupes the symmetric pair
+            d = shared_door(z["polygon"], zones[j]["polygon"])
+            if d:
+                doors.append(d)
+    return {"doors": doors, "windows": perimeter_windows(fw, fd)}
+
+
+# ---------------------------------------------------------------------------
 # 4. Assemble zones / floors / building (the detailed schema)
 # ---------------------------------------------------------------------------
 def build_zone(poly_m, level, idx, fw, fd, type_hint=None, adjacent_to_idx=None):
@@ -177,6 +232,8 @@ def build_floor(rooms_m, level, fw, fd):
             "corePolygon": core["polygon"] if core else [[fw*0.4, fd*0.4], [fw*0.6, fd*0.4], [fw*0.6, fd*0.6], [fw*0.4, fd*0.6]],
             "wallThickness": WALL_THICKNESS_M,
         },
+        # Real doors (from detected adjacency) + perimeter windows for the airflow solver.
+        "airflowDomain": build_airflow_domain(zones, fw, fd),
         "zones": zones,
     }
 
