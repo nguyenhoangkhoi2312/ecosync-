@@ -1,5 +1,7 @@
 # ECON Enterprise Digital Twin
 
+[![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/nguyenhoangkhoi2312/econ)
+
 ECON is a high-performance Digital Twin platform designed to bridge Building Information Modeling (BIM) data with real-time SCADA/HVAC telemetry. It features a lightweight React/Three.js frontend and a heavy-duty Go backend that runs physical thermodynamic simulations and streams state via WebSockets.
 
 > **🆕 Latest Updates**
@@ -261,7 +263,23 @@ streamlit run app.py
 ```
 *Note: The AI will autonomously grid-search OpenCV parameters to mathematically derive the Space Syntax Dual Graph of the blueprint.*
 
-### 6. Testing the End-to-End Hardware Integration
+### 6. Training the YOLOv11 Computer Vision Models
+If you wish to retrain the YOLOv11 models (either for Occupancy Detection in Branch A or Floorplan Semantic Segmentation in Branch B) rather than using the pre-trained weights:
+
+```bash
+# Navigate to the relevant AI module (e.g., Branch B Digitization)
+cd ai_modules/branch_b_digitization/skeyspot
+
+# Ensure Ultralytics is installed
+pip install ultralytics
+
+# Start the training job (modify data.yaml and epochs as needed)
+# Note: If running on Apple Silicon, append device=mps to utilize the hardware acceleration.
+yolo task=detect mode=train model=yolo11n.pt data=data.yaml epochs=100 imgsz=640 batch=16 device=mps
+```
+*Once training is complete, copy the output weights from `runs/detect/train/weights/best.pt` into the module's root directory before running the tracker.*
+
+### 7. Testing the End-to-End Hardware Integration
 To verify the complete physics loop (YOLO -> MQTT -> Go Engine -> ESP32), you can run the mock hardware emulator alongside the computer vision tracker:
 
 **Terminal 1: Start the ESP32 Hardware Emulator**
@@ -279,7 +297,7 @@ python3 yolo_tracker.py
 ```
 *As YOLO detects people in the sample video, it publishes telemetry to the Go Engine. When the occupancy drops, the Engine mathematically determines the required setback and fires an MQTT actuation command back to Terminal 1, audibly simulating a physical hardware relay click!*
 
-### 7. Testing the Full Digital Twin Functionality
+### 8. Testing the Full Digital Twin Functionality
 Once the Backend (Step 1) and Frontend (Step 2) are running, open your browser to `http://localhost:5173` to explore the complete feature set:
 
 1. **3D Heatmap & Airflow:** Navigate around the 3D isometric model. The building will glow dynamically based on real-time temperature deviations. The animated airflow lines realistically respect the structural boundaries (walls and doors) based on potential-flow physics.
