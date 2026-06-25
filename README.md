@@ -525,7 +525,7 @@ While ECON operates as an autonomous system, facility managers must retain super
 To ensure ECON operates as a deterministic, physical Digital Twin rather than a superficial dashboard, the Go backend (`econ/server/simulation/engine.go`) implements a strict state-space thermodynamic and fluid dynamics model. 
 
 ### 6.1 The 2R1C Lumped-Capacitance Thermodynamic Model
-While purely data-driven models often fail out-of-distribution during critical HVAC faults or thermal-runaway events, a physical 2-Resistor / 1-Capacitor (2R1C) equivalent-circuit model guarantees first-law (energy-conservation) consistency by construction. Following the simplified RC building-model formulation reviewed by Kramer et al. (2012) and the ASHRAE heat-balance method, each zone resolves transient heat transfer between the outdoor environment, the wall thermal mass ($C_{\text{wall}}$), and the indoor air volume ($C_{\text{air}}$) through an inner resistance $R_{\text{in}}$ (air ↔ wall) and an outer resistance $R_{\text{out}}$ (wall ↔ outdoors):
+While purely data-driven models often fail out-of-distribution during critical HVAC faults or thermal-runaway events, a physical 2-Resistor / 1-Capacitor (2R1C) equivalent-circuit model guarantees first-law (energy-conservation) consistency by construction. Following the simplified RC building-model formulation reviewed by Kramer et al. (2012) and the ASHRAE heat-balance method, each zone resolves transient heat transfer between the outdoor environment, the wall thermal mass ($C\sb{\text{wall}}$), and the indoor air volume ($C\sb{\text{air}}$) through an inner resistance $R\sb{\text{in}}$ (air ↔ wall) and an outer resistance $R\sb{\text{out}}$ (wall ↔ outdoors):
 
 $$
 \frac{dT_{\text{air}}}{dt} = \frac{1}{C_{\text{air}}} \left[ \frac{T_{\text{wall}} - T_{\text{air}}}{R_{\text{in}}} + \dot{q}_{\text{int}} - \dot{q}_{\text{cool}} \right]
@@ -535,7 +535,7 @@ $$
 \frac{dT_{\text{wall}}}{dt} = \frac{1}{C_{\text{wall}}} \left[ \frac{T_{\text{out}} - T_{\text{wall}}}{R_{\text{out}}} - \frac{T_{\text{wall}} - T_{\text{air}}}{R_{\text{in}}} \right]
 $$
 
-where $\dot{q}_{\text{int}}$ is the aggregate internal heat load (occupants + equipment + solar gain) and $\dot{q}_{\text{cool}}$ is the active sensible cooling delivered by the VAV terminal unit (§6.2). Collecting the state $\mathbf{T} = [\,T_{\text{air}},\, T_{\text{wall}}\,]^{\top}$, this is a linear state-space system $\dot{\mathbf{T}} = \mathbf{A}\mathbf{T} + \mathbf{b}$ with
+where $\dot{q}\sb{\text{int}}$ is the aggregate internal heat load (occupants + equipment + solar gain) and $\dot{q}\sb{\text{cool}}$ is the active sensible cooling delivered by the VAV terminal unit (§6.2). Collecting the state $\mathbf{T} = [\,T\sb{\text{air}},\, T\sb{\text{wall}}\,]^{\top}$, this is a linear state-space system $\dot{\mathbf{T}} = \mathbf{A}\mathbf{T} + \mathbf{b}$ with
 
 $$
 \mathbf{A} =
@@ -563,7 +563,7 @@ $$
 \Delta t < \frac{2}{|\lambda_{\max}(\mathbf{A})|} \approx 2\,R_{\text{in}} C_{\text{air}} = 2\,\tau_{\text{air}},
 $$
 
-i.e. the timestep must stay below twice the smallest zone time constant $\tau_{\text{air}} = R_{\text{in}}C_{\text{air}}$. The base tick $\Delta t = 33\,\mathrm{ms}$ sits far inside this limit; the scenario engine only inflates $\Delta t$ (up to $2.0$) for *visual* fast-forward of recovery, which remains stable given the large zone capacitances ($C_{\text{air}}, C_{\text{wall}} \sim 10^{6}\,\mathrm{J/K}$).
+i.e. the timestep must stay below twice the smallest zone time constant $\tau\sb{\text{air}} = R\sb{\text{in}}C\sb{\text{air}}$. The base tick $\Delta t = 33\,\mathrm{ms}$ sits far inside this limit; the scenario engine only inflates $\Delta t$ (up to $2.0$) for *visual* fast-forward of recovery, which remains stable given the large zone capacitances ($C\sb{\text{air}}, C\sb{\text{wall}} \sim 10^{6}\,\mathrm{J/K}$).
 
 ### 6.2 HVAC Cooling Capacity & Nominal Flow Normalization
 To prevent thermal drift across unequally-sized zones, the engine sizes each zone's cooling capacity against its VAV's *nominal* design flow, so that at nominal flow and setpoint the zone is in exact steady-state balance:
@@ -573,13 +573,13 @@ $$
 \qquad T_{\text{supply}} = 12\,^{\circ}\mathrm{C},
 $$
 
-where $\dot{m}$ is the live VAV mass-airflow, $\dot{m}_{\text{nom}}$ its nominal value (captured once from the Hardy-Cross solve at default damper resistance, §6.3), and $T_{\text{supply}} = 12\,^{\circ}\mathrm{C}$ is the conditioned supply-air temperature. The nominal total load that must be removed to hold setpoint is the sum of the nominal internal gains and the steady-state envelope conduction:
+where $\dot{m}$ is the live VAV mass-airflow, $\dot{m}\sb{\text{nom}}$ its nominal value (captured once from the Hardy-Cross solve at default damper resistance, §6.3), and $T\sb{\text{supply}} = 12\,^{\circ}\mathrm{C}$ is the conditioned supply-air temperature. The nominal total load that must be removed to hold setpoint is the sum of the nominal internal gains and the steady-state envelope conduction:
 
 $$
 \dot{q}_{\text{total,nom}} = \dot{q}_{\text{int,nom}} + \frac{T_{\text{out}} - T_{\text{sp}}}{R_{\text{in}} + R_{\text{out}}}.
 $$
 
-Normalizing by each VAV's own nominal flow (rather than a hard-coded reference) keeps the model correct regardless of how many VAVs share an AHU. Consequently any airflow reduction ($\dot{m} < \dot{m}_{\text{nom}}$) — whether from an occupancy setback or a stuck damper — produces an immediate, physically-grounded drop in cooling capacity, driving the $T_{\text{air}}$ equation of §6.1 into a warming state.
+Normalizing by each VAV's own nominal flow (rather than a hard-coded reference) keeps the model correct regardless of how many VAVs share an AHU. Consequently any airflow reduction ($\dot{m} < \dot{m}\sb{\text{nom}}$) — whether from an occupancy setback or a stuck damper — produces an immediate, physically-grounded drop in cooling capacity, driving the $T\sb{\text{air}}$ equation of §6.1 into a warming state.
 
 ### 6.3 Hardy Cross Fluid Network Solver
 When a VAV damper closes (from a fault or an occupancy-driven setback), the static pressure in the shared ductwork shifts, inherently forcing more airflow into the parallel zones. Each duct branch obeys the turbulent head-loss law
