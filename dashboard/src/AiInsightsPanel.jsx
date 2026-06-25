@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { Brain, Zap, AlertTriangle, TrendingDown, ThermometerSnowflake, Activity, Eye, ShieldAlert } from 'lucide-react';
 
-export default function AiInsightsPanel({ simData, activeScenario, faultTarget }) {
+export default function AiInsightsPanel({ simData, activeScenario, faultTarget, aiForecast }) {
   
   // Dynamically generate insights based on simulation state
   const insights = useMemo(() => {
@@ -31,6 +31,20 @@ export default function AiInsightsPanel({ simData, activeScenario, faultTarget }
         action: 'ACTIVATE PRE-COOLING'
       });
     }
+
+    // [GEMINI IMPLEMENTATION START]
+    if (aiForecast && aiForecast.predicted_peak_load) {
+      const isFallback = aiForecast.weather_source === "fallback";
+      generated.push({
+        id: 'forecast',
+        type: 'info',
+        icon: <Activity size={18} color="var(--accent-blue)" />,
+        title: 'LSTM Load Forecast',
+        message: `Deep Learning model predicts an upcoming peak load of ${aiForecast.predicted_peak_load.toFixed(2)} MW. ${isFallback ? '(Using fallback weather)' : '(Live weather data incorporated)'}`,
+        action: 'VIEW PREDICTIONS'
+      });
+    }
+    // [GEMINI IMPLEMENTATION END]
 
     // 3. Unoccupied Wasting
     const wastingZones = zones.filter(z => z.occupancy === 0 && z.load > 0);

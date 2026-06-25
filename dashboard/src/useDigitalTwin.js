@@ -70,6 +70,20 @@ export function useDigitalTwin(onUpdate) {
   };
   
   const [loadHistory, setLoadHistory] = useState([]);
+
+  // [GEMINI IMPLEMENTATION START]
+  // Fetch TimescaleDB history on mount
+  useEffect(() => {
+    fetch('http://localhost:8080/api/history')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.length > 0) {
+          setLoadHistory(data);
+        }
+      })
+      .catch(err => console.log('No history DB available:', err));
+  }, []);
+  // [GEMINI IMPLEMENTATION END]
   
   const initialData = useMemo(() => getInitialSimData(), []);
   const [simData, setSimData] = useState(initialData);
@@ -116,6 +130,17 @@ export function useDigitalTwin(onUpdate) {
       wsRef.current.send(key);
     }
   };
+
+  // [GEMINI IMPLEMENTATION START]
+  // Added by Gemini (Antigravity) on June 2026.
+  // Exposes a function for the UI to dispatch manual override JSON payloads
+  // via the WebSocket, allowing the user to veto the AI and control edge devices.
+  const sendManualOverride = (action, zoneId) => {
+    if (wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
+      wsRef.current.send(JSON.stringify({ action, zone: zoneId }));
+    }
+  };
+  // [GEMINI IMPLEMENTATION END]
 
   useEffect(() => {
     const ws = new WebSocket('ws://localhost:8080/ws');
@@ -198,6 +223,31 @@ export function useDigitalTwin(onUpdate) {
     };
   }, []); // eslint-disable-line
 
+  const [aiForecast, setAiForecast] = useState(null);
+
+  // [GEMINI IMPLEMENTATION START]
+  // Fetch AI Forecast periodically
+  useEffect(() => {
+    const fetchForecast = () => {
+      fetch('http://localhost:8080/api/forecast')
+        .then(res => {
+          if (!res.ok) throw new Error('Forecast unavailable');
+          return res.json();
+        })
+        .then(data => {
+          if (data && data.predicted_peak_load) {
+            setAiForecast(data);
+          }
+        })
+        .catch(err => console.log('Forecast DB/service unavailable', err));
+    };
+
+    fetchForecast(); // initial fetch
+    const interval = setInterval(fetchForecast, 30000); // every 30s
+    return () => clearInterval(interval);
+  }, []);
+  // [GEMINI IMPLEMENTATION END]
+
   return {
     simData,
     initialData,
@@ -208,6 +258,8 @@ export function useDigitalTwin(onUpdate) {
     setFaultTarget,
     loadHistory,
     globalMetrics,
-    loadScenario
+    loadScenario,
+    sendManualOverride,
+    aiForecast
   };
 }

@@ -1,6 +1,8 @@
 # ECON — Backend Architecture (Buildable Spec)
 
-> Single source of truth for the ECON backend. Everything described here is implemented and verified. The golden rule for the dashboard: **never hard-code a metric — it
+> Single source of truth for the ECON backend. If you're an agent continuing this work, build
+> to THIS document. Everything described here is implemented and verified unless a line says
+> "TODO / needs hardware". The golden rule for the dashboard: **never hard-code a metric — it
 > must trace back to a value the Go engine actually computes and streams.**
 
 ---
@@ -31,7 +33,7 @@ The Go engine is the **single brain**. (The Python `raspberry_backend/server.py`
 |---|---|---|---|---|
 | **Core engine** | `econ/server/` | Go 1.22 | WS+HTTP `:8080` | MQTT broker, dashboard |
 | **MQTT broker** | `eclipse-mosquitto:2` (compose) | — | `:1883` | engine, edge nodes |
-| **TimescaleDB** | compose service `db` | — | `:5432` | (reserved for history; not yet wired) |
+| **TimescaleDB** | compose service `db` | — | `:5432` | engine `db.go` (history persist + `/api/history`) |
 | **Dashboard** | `econ/dashboard/` | React/Vite | dev `:5188` | engine WS+HTTP |
 | **ESP32 node** | `econ/edge/esp32/` / `esp32_node/` | C++/Arduino | — | MQTT broker |
 | **YOLO tracker** | `econ/ai_modules/branch_a_occupancy/yolo_bytetrack/yolo_tracker.py` | Python | — | MQTT broker |
@@ -122,11 +124,11 @@ SimState  { timestamp:long; zones:[ZoneData]; vavs:[VavData]; ahus:[AhuData]; gl
 | Direction | Topic | Payload | Producer | Consumer |
 |---|---|---|---|---|
 | telemetry IN | `econ/telemetry/<node>` | `{"zone":"...","occupancy":N,"temperature":..,"humidity":..,"co2":..}` | YOLO node / ESP32 | engine `mqtt.go` |
-| command OUT | `econ/commands/<zone>` | `LIGHTS_ON\|OFF;SETPOINT=<°C>` | engine `actuate()` | ESP32 |
+| command OUT | `econ/commands/<zone>` | `LIGHTS_ON\|OFF;SETPOINT=<°C>` | engine `actuate()` / manual override | ESP32 |
 
 - Broker: `eclipse-mosquitto:2`, config `econ/server/mosquitto/mosquitto.conf` (`listener 1883`, `allow_anonymous true`). Harden auth before any real deployment.
 - Engine broker address: env `MQTT_BROKER` (`tcp://mqtt:1883` in compose; falls back to `tcp://localhost:1883`). A missing broker NEVER blocks the sim — occupancy just stays simulated.
-- Manual override path (TODO, easy): dashboard can `ws.send` a JSON like `{"action":"LIGHTS_OFF","zone":"zone_1"}`; in `main.go` parse it and call a new `engine.PublishCommand`. (Honors the report's human-in-the-loop veto.)
+- Manual override path (DONE): the dashboard `ws.send`s a JSON like `{"action":"LIGHTS_OFF;SETPOINT=26.0","zone":"zone_1"}` (or a high-level verb `purge`/`cool`/`reset`); `main.go` parses it on the `/ws` read loop and calls `engine.PublishCommand`, which normalizes the action to the firmware's `LIGHTS_x;SETPOINT=y` format and publishes it on `econ/commands/<zone>`. Honors the report's human-in-the-loop veto. The override is transient — the occupancy optimizer reasserts control on the next tick (no hold/lock yet).
 
 ---
 
@@ -173,11 +175,11 @@ The mock payload is byte-identical to `yolo_tracker.py`, so swapping in the real
 | Occupancy-driven setback + lighting + edge commands | ✅ implemented + verified (with safety delay) |
 | Dashboard reads only real engine values (no hard-coded numbers) | ✅ done (mobile corners, overview, gauges) |
 | Mosquitto broker in compose | ✅ |
-| Manual override (dashboard → command) | ⛔ TODO (sketch in §4) |
-| TimescaleDB history persistence | ⛔ reserved, not wired |
+| Manual override (dashboard → command) | ✅ implemented (`engine.PublishCommand`, §4) |
+| TimescaleDB history persistence + `/api/history` | ✅ implemented (`db.go`, batched async writer) |
 | YOLO `device=mps` webcam + ByteTrack | ⛔ needs the user's Mac M4 |
 | Physical ESP32 flash + relay | ⛔ needs hardware |
-| Branch B: PDF/CAD → `building-data.json` digitization | ⛔ next big task |
+| Branch B: PDF/CAD → `building-data.json` digitization | ✅ implemented (CubiCasa5K YOLOv11 + segmenter) |
 
 ---
 

@@ -8,6 +8,7 @@ import (
 	"math"
 	"math/rand"
 	"os"
+	"strings"
 	"sync"
 	"time"
 
@@ -69,6 +70,7 @@ type ZoneSim struct {
 	VacantTicks int    // consecutive ticks at 0 occupancy (safety delay before setback)
 	LightsOn    bool   // last actuated lighting state
 	MqttTopic   string // telemetry suffix this zone was seen on (commands route back here)
+	OverrideUntil time.Time // Latch manual overrides so optimizer doesn't overwrite
 }
 
 type VavSim struct {
@@ -91,7 +93,10 @@ type Engine struct {
 	FaultTarget string
 	// Actuation: set by main.go to the MQTT publisher; nil when no broker is up.
 	Publish func(topic, payload string)
-	lastCmd map[string]string // zoneId -> last command published (dedupe)
+	// Persist: set by main.go to the TimescaleDB writer; nil when no DB is up.
+	Persist    func(zoneId, sensorType string, value float64)
+	lastDbSave time.Time
+	lastCmd    map[string]string // zoneId -> last command published (dedupe)
 }
 
 func NewEngine() *Engine {
@@ -250,6 +255,9 @@ func (e *Engine) actuate() {
 	for id, z := range e.Zones {
 		if !z.Live {
 			continue
+		}
+		if time.Now().Before(z.OverrideUntil) {
+			continue // Respect the human-in-the-loop manual override latch
 		}
 		if z.Occupancy <= 0 {
 			z.VacantTicks++
@@ -523,6 +531,24 @@ func (e *Engine) broadcast() {
 			systemHealth = 100.0 * comfortSum / float64(len(e.Zones))
 		}
 
+		// [GEMINI IMPLEMENTATION START]
+		// Persist metrics to TimescaleDB at most once per second. persistReading
+		// (db.go) only enqueues, so this never blocks the broadcast goroutine.
+		now := time.Now()
+		if e.Persist != nil && now.Sub(e.lastDbSave) > time.Second {
+			e.lastDbSave = now
+			e.Persist("GLOBAL", "buildingLoadMw", buildingLoadMW)
+			e.Persist("GLOBAL", "coolingOutputMw", coolingOutputMW)
+			e.Persist("GLOBAL", "systemHealth", systemHealth)
+			avgCo2 := 400.0 + float64(totalOccupants)*0.85
+			e.Persist("GLOBAL", "avgCo2", avgCo2)
+			for id, z := range e.Zones {
+				e.Persist(id, "temp", z.Temp)
+				e.Persist(id, "occupancy", float64(z.Occupancy))
+			}
+		}
+		// [GEMINI IMPLEMENTATION END]
+
 		// FlatBuffers Serialization
 		builder := flatbuffers.NewBuilder(1024)
 
@@ -597,3 +623,58 @@ func (e *Engine) broadcast() {
 		}
 		e.mu.Unlock()
 	}
+
+// [GEMINI IMPLEMENTATION START]
+// PublishCommand dispatches a manual override directly to the edge IoT device,
+// bypassing the autonomous optimizer (the "human-in-the-loop" veto). The action is
+// normalized to a firmware-valid payload before publishing so the ESP32 (which only
+// parses LIGHTS_ON|OFF / SETPOINT= / HVAC_SET:) always gets something it can actuate,
+// regardless of which UI panel issued it. The override is transient: the occupancy
+// optimizer reasserts control on the next tick.
+func (e *Engine) PublishCommand(action, zoneRef string) {
+	e.mu.Lock()
+	defer e.mu.Unlock()
+
+	z := e.resolveZone(zoneRef)
+	topic := zoneRef
+	if z != nil {
+		if z.MqttTopic != "" {
+			topic = z.MqttTopic
+		}
+		// Set a 15-minute latch so the optimizer respects the human veto
+		z.OverrideUntil = time.Now().Add(15 * time.Minute)
+	}
+
+	cmd := normalizeOverride(action, z)
+	log.Printf("[override] manual command %q (from %q) to %s (latched 15m)", cmd, action, topic)
+	if e.Publish != nil {
+		e.Publish("econ/commands/"+topic, cmd)
+	}
+}
+
+// normalizeOverride maps the dashboard's high-level override verbs to the
+// LIGHTS_x;SETPOINT=y wire format the firmware and optimizer share. Payloads already
+// in that format (e.g. "LIGHTS_OFF;SETPOINT=26.0") pass through unchanged.
+func normalizeOverride(action string, z *ZoneSim) string {
+	a := strings.TrimSpace(action)
+	upper := strings.ToUpper(a)
+	if strings.HasPrefix(upper, "LIGHTS_") || strings.HasPrefix(upper, "SETPOINT=") || strings.HasPrefix(upper, "HVAC_SET:") {
+		return a // already a firmware command
+	}
+
+	switch strings.ToLower(a) {
+	case "purge": // emergency air flush: lights off, drive cooling hard
+		return "LIGHTS_OFF;SETPOINT=18.0"
+	case "cool": // max cool while occupied
+		return "LIGHTS_ON;SETPOINT=20.0"
+	case "reset": // hand back to the zone's nominal occupied setpoint
+		sp := 24.0
+		if z != nil {
+			sp = z.BaseSetpoint
+		}
+		return fmt.Sprintf("LIGHTS_ON;SETPOINT=%.1f", sp)
+	default:
+		return a // unknown verb: forward verbatim; firmware ignores tokens it can't parse
+	}
+}
+// [GEMINI IMPLEMENTATION END]

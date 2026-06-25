@@ -18,3 +18,11 @@ edge/esp32/.pio/
 # Local agent-context scratch files (never commit)
 CONTINUE_HERE.md
 GEMINI.md
+
+# Large Datasets & Training outputs
+ai_modules/branch_b_digitization/runs/
+ai_modules/branch_b_digitization/skeyspot/runs/
+ai_modules/branch_b_digitization/skeyspot/CubiCasa5k/
+ai_modules/branch_b_digitization/skeyspot/yolo_dataset/
+ai_modules/branch_b_digitization/skeyspot/mock_dataset/
+ai_modules/branch_b_digitization/skeyspot/data/

@@ -57,7 +57,21 @@ function DeltaCard({ title, icon: Icon, value, unit, delta, isGood, historyData,
   );
 }
 
-export default function GlobalMetricsPanel({ simData, globalMetrics, loadHistory, activeFloor, selectedNode, width = 320, setWidth }) {
+export default function GlobalMetricsPanel({ simData, globalMetrics, loadHistory, activeFloor, selectedNode, width = 320, setWidth, sendManualOverride }) {
+  const [zoneHistory, setZoneHistory] = React.useState([]);
+
+  React.useEffect(() => {
+    if (selectedNode?.type === 'zone') {
+      fetch(`http://localhost:8080/api/history?zone=${selectedNode.id}`)
+        .then(res => res.json())
+        .then(data => {
+          if (data && data.length > 0) setZoneHistory(data);
+        })
+        .catch(err => console.log('Zone history error:', err));
+    } else {
+      setZoneHistory([]);
+    }
+  }, [selectedNode?.id]);
   
   const bldgLoad = simData.buildingLoadMw ?? 0;
   const sysHealth = simData.systemHealth ?? 100;
@@ -145,10 +159,42 @@ export default function GlobalMetricsPanel({ simData, globalMetrics, loadHistory
             </span>
           </div>
 
+          {/* Delta Cards for Zone */}
+          <DeltaCard 
+            title="LOCAL TEMP" icon={Thermometer} value={parseFloat(selectedNode.data.temp).toFixed(1)} unit="°C" 
+            delta={0} isGood={true} historyData={zoneHistory} dataKey="pwr" sparkColor="var(--accent-yellow)" 
+          />
+          <DeltaCard 
+            title="OCCUPANCY" icon={Users} value={selectedNode.data.occupancy} unit="Pax" 
+            delta={0} isGood={true} historyData={zoneHistory} dataKey="co2" sparkColor="var(--accent-blue)" 
+          />
+
           <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid var(--border-glass)', borderRadius: '8px', padding: '16px 12px 4px 12px' }}>
             <BulletGraph label="Local Temp" value={parseFloat(selectedNode.data.temp)} max={35} target={24} color={selectedNode.data.alert ? 'var(--accent-red)' : 'var(--accent-yellow)'} unit="°C" />
             <BulletGraph label="Occupancy" value={selectedNode.data.occupancy} max={80} target={20} color="var(--accent-blue)" unit="Pax" />
             <BulletGraph label="Integration Score" value={selectedNode.data.integration_score ?? 0} max={2} target={0.5} color="var(--accent-green)" unit="Idx" />
+          </div>
+
+          {/* Manual Override Panel */}
+          <div style={{ marginTop: '0.5rem' }}>
+             <h3 style={{ fontSize: '10px', color: 'var(--text-secondary)', marginBottom: '8px' }}>MANUAL OVERRIDE / VETO</h3>
+             <div style={{ display: 'flex', gap: '8px' }}>
+               <button 
+                 onClick={() => sendManualOverride && sendManualOverride('purge', selectedNode.id)}
+                 style={{ flex: 1, padding: '8px', background: 'rgba(255,0,0,0.1)', border: '1px solid var(--accent-red)', color: 'var(--accent-red)', borderRadius: '4px', cursor: 'pointer', fontSize: '10px', fontWeight: 'bold' }}>
+                 PURGE
+               </button>
+               <button 
+                 onClick={() => sendManualOverride && sendManualOverride('cool', selectedNode.id)}
+                 style={{ flex: 1, padding: '8px', background: 'rgba(0,150,255,0.1)', border: '1px solid var(--accent-blue)', color: 'var(--accent-blue)', borderRadius: '4px', cursor: 'pointer', fontSize: '10px', fontWeight: 'bold' }}>
+                 MAX COOL
+               </button>
+               <button 
+                 onClick={() => sendManualOverride && sendManualOverride('reset', selectedNode.id)}
+                 style={{ flex: 1, padding: '8px', background: 'rgba(255,255,255,0.1)', border: '1px solid var(--border-glass)', color: 'var(--text-primary)', borderRadius: '4px', cursor: 'pointer', fontSize: '10px', fontWeight: 'bold' }}>
+                 RESET
+               </button>
+             </div>
           </div>
         </div>
       ) : (

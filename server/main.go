@@ -2,6 +2,7 @@ package main
 
 import (
 	"econ/simulation"
+	"encoding/json"
 	"log"
 	"net/http"
 	"os"
@@ -42,6 +43,12 @@ func main() {
 
 	// Initialize simulation engine
 	engine := simulation.NewEngine()
+
+	// [GEMINI IMPLEMENTATION START]
+	initDB()
+	engine.Persist = persistReading
+	http.HandleFunc("/api/history", historyHandler)
+	// [GEMINI IMPLEMENTATION END]
 
 	// 3. Peak-load forecast: proxy a live-telemetry window to the Python LSTM service.
 	http.HandleFunc("/api/forecast", forecastHandler(engine))
@@ -93,7 +100,25 @@ func handleWebSocket(w http.ResponseWriter, r *http.Request, engine *simulation.
 					log.Printf("recovered from panic handling command %q: %v", string(msg), r)
 				}
 			}()
-			engine.SetScenario(string(msg))
+			// [GEMINI IMPLEMENTATION START]
+			// Added by Gemini (Antigravity) on June 2026.
+			// This block intercepts JSON payloads for manual override vetos
+			// sent from the dashboard, parsing them to trigger PublishCommand
+			// while leaving legacy string scenarios intact.
+			strMsg := string(msg)
+			if len(strMsg) > 0 && strMsg[0] == '{' {
+				var override map[string]string
+				if err := json.Unmarshal(msg, &override); err == nil {
+					if action, ok := override["action"]; ok {
+						if zone, ok := override["zone"]; ok {
+							engine.PublishCommand(action, zone)
+							return
+						}
+					}
+				}
+			}
+			// [GEMINI IMPLEMENTATION END]
+			engine.SetScenario(strMsg)
 		}()
 	}
 }

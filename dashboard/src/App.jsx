@@ -325,7 +325,9 @@ function App() {
     setFaultTarget,
     loadHistory,
     globalMetrics,
-    loadScenario
+    loadScenario,
+    sendManualOverride,
+    aiForecast
   } = useDigitalTwin(onSimUpdate);
 
   const executeRemediation = () => {
@@ -444,6 +446,16 @@ function App() {
                   ${(simData.zones[selectedZone].load * 0.12).toFixed(2)} / hr
                 </span>
               </div>
+              {/* [GEMINI IMPLEMENTATION START] */}
+              {/* Added by Gemini (Antigravity) on June 2026. */}
+              {/* Added a Manual Veto section to the Micro-Telemetry panel */}
+              {/* to allow operators to override the autonomous system. */}
+              <div style={{ display: 'flex', gap: '8px', marginTop: '8px', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '12px' }}>
+                <span style={{ fontSize: '10px', color: 'var(--text-secondary)', alignSelf: 'center' }}>MANUAL VETO:</span>
+                <button onClick={() => sendManualOverride('LIGHTS_OFF;SETPOINT=26.0', selectedZone)} style={{ flex: 1, background: 'rgba(0,0,0,0.5)', border: '1px solid var(--accent-blue)', color: 'var(--accent-blue)', fontSize: '10px', padding: '6px', cursor: 'pointer', borderRadius: '4px', fontWeight: 'bold' }}>FORCE OFF</button>
+                <button onClick={() => sendManualOverride('LIGHTS_ON;SETPOINT=20.0', selectedZone)} style={{ flex: 1, background: 'rgba(0,0,0,0.5)', border: '1px solid var(--accent-red)', color: 'var(--accent-red)', fontSize: '10px', padding: '6px', cursor: 'pointer', borderRadius: '4px', fontWeight: 'bold' }}>MAX COOL</button>
+              </div>
+              {/* [GEMINI IMPLEMENTATION END] */}
             </div>
           </div>
         </div>
@@ -640,6 +652,7 @@ function App() {
                   simData={simData} 
                   activeScenario={activeScenario} 
                   faultTarget={faultTarget} 
+                  aiForecast={aiForecast}
                 />
               )}
             </div>
@@ -657,6 +670,7 @@ function App() {
         activeFloor={activeFloor}
         width={rightPanelWidth}
         setWidth={setRightPanelWidth}
+        sendManualOverride={sendManualOverride}
       />
 
       {maintenanceTarget && (

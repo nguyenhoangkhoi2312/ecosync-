@@ -4,6 +4,14 @@ ECON is a high-performance Digital Twin platform designed to bridge Building Inf
 
 > **🆕 Latest Updates**
 >
+> ### 2026-06-25 — YOLO Integration & Backend Data Lifecycle
+>
+> **Computer Vision Floorplan Parsing.** The SkeySpot YOLOv11 model weights (`best.pt`, trained on CubiCasa5K) are now integrated into `detector.py`. This allows the platform to natively ingest raw 2D blueprints, detect physical boundaries, and classify bounding boxes for electrical appliances and structural components directly into the semantic ontology.
+>
+> **Human-in-the-loop veto latching.** Engineered a 15-minute latch (`OverrideUntil`) into the Go Physics Engine. When an operator manually overrides an actuator (e.g. "Lights Off"), the autonomous optimizer respects the veto and suspends automation for 15 minutes instead of instantly re-evaluating the zone state.
+>
+> **TimescaleDB Continuous Aggregates & Retention.** Upgraded the SQL schema to automatically bucket raw sub-second sensor telemetry into 5-minute averages. Added stringent lifecycle data management: raw high-fidelity telemetry is pruned after 7 days, while 5-minute downsampled historical aggregates are retained for 90 days.
+>
 > ### 2026-06-24 — TimescaleDB history persistence & manual-override veto
 >
 > **Self-recording history.** The Go engine now persists its own telemetry to the TimescaleDB
