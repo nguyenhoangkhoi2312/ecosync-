@@ -482,6 +482,12 @@ Taking design cues from premium interfaces like the Tesla Energy app, the mobile
 ### 5.5 Logical Topology Mapping
 While the physical layout is rendered in Three.js, the underlying mechanical lineage (e.g., Chiller $\rightarrow$ AHU $\rightarrow$ VAV box $\rightarrow$ Zone) is rendered using a 2D node-based graph via **ReactFlow**. This duality allows facility managers to debug both spatial problems ("The south perimeter is hot") and mechanical dependencies ("Which VAV serves the south perimeter?"). Thermodynamic characteristic charts (powered by **Recharts**) simultaneously plot CO₂ vs Power to identify mechanical anomalies.
 
+### 5.6 Time-Series Telemetry & Data Lifecycle
+To persist the massive influx of simulated and physical telemetry, ECON integrates **TimescaleDB** (a time-series extension for PostgreSQL). The Go engine utilizes non-blocking buffered channels and background batch writers to flush sub-second telemetry without stalling the 30 FPS broadcast loop. To manage long-term storage and prevent database bloat, the schema employs continuous aggregates: raw high-fidelity data is automatically bucketed into 5-minute averages, with raw data strictly pruned after 7 days and downsampled historical aggregates retained for 90 days.
+
+### 5.7 Supervisory Human-in-the-Loop Override (Veto Latching)
+While ECON operates as an autonomous system, facility managers must retain supervisory control. Operators can issue direct commands (e.g., `FORCE OFF`, `PURGE`) via the React frontend. These WebSocket payloads are normalized by the Go engine into edge-compatible strings (e.g., `LIGHTS_OFF;SETPOINT=26.0`) and broadcasted via MQTT. Crucially, the engine implements a temporal veto latch (`OverrideUntil`); when a human issues a command, the autonomous occupancy optimizer respects the manual override and suspends its own control loop for 15 minutes, preventing the AI from instantly reversing the operator's decision.
+
 ---
 
 ## 6. Mathematical Foundations & Physics Engine Rationale
