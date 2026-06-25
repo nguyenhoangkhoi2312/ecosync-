@@ -274,8 +274,11 @@ cd ai_modules/branch_b_digitization/skeyspot
 pip install ultralytics
 
 # Start the training job (modify data.yaml and epochs as needed)
-# Note: If running on Apple Silicon, append device=mps to utilize the hardware acceleration.
-yolo task=detect mode=train model=yolo11n.pt data=data.yaml epochs=100 imgsz=640 batch=16 device=mps
+# Note on Hardware Acceleration:
+# - For Windows/Linux with NVIDIA GPU: append `device=0`
+# - For Mac Apple Silicon (M1/M2/M3): append `device=mps`
+# - For CPU only: omit the device flag
+yolo task=detect mode=train model=yolo11n.pt data=data.yaml epochs=100 imgsz=640 batch=16 device=0
 ```
 *Once training is complete, copy the output weights from `runs/detect/train/weights/best.pt` into the module's root directory before running the tracker.*
 
