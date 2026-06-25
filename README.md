@@ -342,13 +342,13 @@ To ensure individuals are accurately tracked without double-counting, we employ 
 
 In dense indoor office environments (e.g., lobbies), simple centroid tracking fails rapidly when people overlap or change scale, leading to identity switches. Conversely, algorithms like DeepSORT ([GitHub Repository](https://github.com/nwojke/deep_sort)) rely heavily on appearance embeddings, which degrade under indoor lighting variations, partial occlusion, or when workers wear visually similar clothing. 
 
-ByteTrack outperforms both by associating *every* detection box — including low-confidence ones — using motion and box-overlap cues. Let the high- and low-confidence detection sets be $\mathcal{D}_{\text{high}}$ and $\mathcal{D}_{\text{low}}$. A Kalman filter (Kalman, 1960) first predicts each tracklet's location $\mathcal{T}$ in the current frame; the engine then forms the Intersection-over-Union (IoU) cost matrix between tracklets and high-confidence detections,
+ByteTrack outperforms both by associating *every* detection box — including low-confidence ones — using motion and box-overlap cues. Let the high- and low-confidence detection sets be $\mathcal{D}\_{\text{high}}$ and $\mathcal{D}\_{\text{low}}$. A Kalman filter (Kalman, 1960) first predicts each tracklet's location $\mathcal{T}$ in the current frame; the engine then forms the Intersection-over-Union (IoU) cost matrix between tracklets and high-confidence detections,
 
 $$
 C(i, j) = 1 - \text{IoU}\!\left(\mathcal{T}_i,\, \mathcal{D}_j\right),
 $$
 
-and solves the optimal assignment with the Hungarian algorithm (Kuhn, 1955). Tracklets left unmatched after this first pass are then associated against $\mathcal{D}_{\text{low}}$ in a secondary matching pass. This recovers an occupant's identity tracklet when their confidence momentarily drops under partial occlusion, instead of discarding it and double-counting on re-entry.
+and solves the optimal assignment with the Hungarian algorithm (Kuhn, 1955). Tracklets left unmatched after this first pass are then associated against $\mathcal{D}\_{\text{low}}$ in a secondary matching pass. This recovers an occupant's identity tracklet when their confidence momentarily drops under partial occlusion, instead of discarding it and double-counting on re-entry.
 
 ---
 
@@ -356,7 +356,7 @@ and solves the optimal assignment with the Hungarian algorithm (Kuhn, 1955). Tra
 Manually mapping the electrical and HVAC topology of a building into a Digital Twin is cost-prohibitive. ECON automates this via a three-step Computer Vision pipeline applied directly to architectural PDFs.
 
 ### 3.1 Semantic Room Segmentation
-Instead of relying on legacy networks like DeepFloorplan ([GitHub Repository](https://github.com/zlzeng/DeepFloorplan)), ECON utilizes a modern PyTorch implementation based on **CubiCasa5K** ([GitHub Repository](https://github.com/cubicasa/cubicasa5k)) for robust floorplan segmentation. This multi-task backbone accurately extracts wall boundaries and room polygons directly into binary raster masks ($R_i$), ensuring spatial mapping scales dynamically across various office layouts.
+Instead of relying on legacy networks like DeepFloorplan ([GitHub Repository](https://github.com/zlzeng/DeepFloorplan)), ECON utilizes a modern PyTorch implementation based on **CubiCasa5K** ([GitHub Repository](https://github.com/cubicasa/cubicasa5k)) for robust floorplan segmentation. This multi-task backbone accurately extracts wall boundaries and room polygons directly into binary raster masks ($R\_i$), ensuring spatial mapping scales dynamically across various office layouts.
 
 ### 3.2 Symbol Detection via Real-World Datasets (CubiCasa5K)
 Electrical symbols (lights, VAV boxes, thermostats) and structural boundaries (doors, windows) are isolated using a **YOLOv11** object detector, inspired by approaches like SkeySpot ([GitHub Repository](https://github.com/HAIx-Lab/Skeyspot)). To ensure the model generalizes across diverse architectural drafting styles, it was trained directly on the **CubiCasa5K** dataset (5,000 real-world, high-quality floorplans) rather than purely synthetic data. After 100 epochs of training on Apple Metal Performance Shaders (MPS), the lightweight `yolo11n` network achieved a **69.5% mAP@50** and 73.0% Precision. This high recall rate is critical: it allows the Digital Twin to autonomously digitize the vast majority of physical assets from a flat PDF, while facility engineers only need to manually drag-and-drop the remaining ~30% in the 3D dashboard editor.
@@ -364,7 +364,7 @@ Electrical symbols (lights, VAV boxes, thermostats) and structural boundaries (d
 ### 3.3 Geometry Reconciliation & Graph Output
 To automatically connect the detected HVAC/lighting symbols (Section 3.2) to their respective thermal zones (Section 3.1), we implement a geometric overlap algorithm. 
 
-Let each room mask $R_i$ be a binary region from segmentation, and each detection box $B_j$ be the symbol bounding box from YOLO. We compute the bounding box center $c_j$ and calculate the assignment score $s(i,j)$:
+Let each room mask $R\_i$ be a binary region from segmentation, and each detection box $B\_j$ be the symbol bounding box from YOLO. We compute the bounding box center $c\_j$ and calculate the assignment score $s(i,j)$:
 
 $$
 s(i,j) = \alpha \cdot \frac{|B_j \cap R_i|}{|B_j|} + (1-\alpha)\cdot \mathbf{1}\!\left[c_j \in R_i\right]
@@ -397,7 +397,7 @@ Where $d(x, y)$ is the shortest-path topological distance between room $x$ and r
 The core brain of ECON is a continuous physics simulation engine written in Go.
 
 ### 4.1 Thermodynamic RC-Network Modeling
-The building is modeled as a lumped Resistor–Capacitor (RC) network. The rate of change of the indoor air temperature $T_z$ in a given zone obeys a first-order energy balance:
+The building is modeled as a lumped Resistor–Capacitor (RC) network. The rate of change of the indoor air temperature $T\_z$ in a given zone obeys a first-order energy balance:
 
 $$
 C_z \frac{dT_z}{dt} = Q_{\text{HVAC}} + Q_{\text{internal}} + Q_{\text{envelope}} + Q_{\text{solar}}
@@ -405,11 +405,11 @@ $$
 
 where
 
-- $C_z$ — thermal capacitance of the zone air and thermal mass $(\mathrm{J/K})$;
-- $Q_{\text{HVAC}}$ — net sensible cooling/heating power delivered by the VAV terminal $(\mathrm{W}$, negative for cooling$)$;
-- $Q_{\text{internal}}$ — metabolic heat from occupants $(\approx 100\,\mathrm{W}$ per person$)$ plus equipment loads;
-- $Q_{\text{envelope}}$ — conductive/convective transfer through the boundary, $U A\,(T_{\text{ext}} - T_z)$;
-- $Q_{\text{solar}}$ — radiative solar gain through fenestration.
+- $C\_z$ — thermal capacitance of the zone air and thermal mass $(\mathrm{J/K})$;
+- $Q\_{\text{HVAC}}$ — net sensible cooling/heating power delivered by the VAV terminal $(\mathrm{W}$, negative for cooling$)$;
+- $Q\_{\text{internal}}$ — metabolic heat from occupants $(\approx 100\,\mathrm{W}$ per person$)$ plus equipment loads;
+- $Q\_{\text{envelope}}$ — conductive/convective transfer through the boundary, $U A\,(T\_{\text{ext}} - T\_z)$;
+- $Q\_{\text{solar}}$ — radiative solar gain through fenestration.
 
 To obtain the electrical power drawn by the chiller plant, the sensible cooling duty is divided by the plant Coefficient of Performance (COP):
 
@@ -420,7 +420,7 @@ $$
 The implementation refines this single-node model into a two-state **2R1C** circuit that separates the fast air node from the slow wall node (§6.1), and the full building electrical load is assembled in §6.6. The engine integrates the resulting ODE system server-side in Go at a fixed $\approx 30\,\mathrm{Hz}$ tick ($\Delta t = 33\,\mathrm{ms}$) and streams the state to the browser as packed FlatBuffers over WebSockets, so the numerical integration never blocks the rendering thread.
 
 ### 4.2 Airflow Balancing (Hardy Cross Method)
-As Variable Air Volume (VAV) dampers modulate to satisfy local $Q_{\text{HVAC}}$ demands, the pressure across the building's ductwork shifts. ECON balances the network with the **Hardy Cross method**, whose general loop-flow correction for an arbitrary looped topology is
+As Variable Air Volume (VAV) dampers modulate to satisfy local $Q\_{\text{HVAC}}$ demands, the pressure across the building's ductwork shifts. ECON balances the network with the **Hardy Cross method**, whose general loop-flow correction for an arbitrary looped topology is
 
 $$
 \Delta Q = -\,\frac{\sum r\,Q\,|Q|^{\,n-1}}{\sum n\,r\,|Q|^{\,n-1}},
@@ -429,7 +429,7 @@ $$
 with the turbulent-duct exponent $n = 2$. This tunes the Air Handling Unit (AHU) fan to the minimum required static pressure. Because ECON's AHU→VAV layout is a purely parallel star, the network admits a closed-form equivalent-resistance solution rather than iteration; that reduction — the form actually implemented in `engine.go` — is derived in detail in §6.3.
 
 ### 4.3 Time-Series Load Forecasting (LSTM)
-To transition from reactive cooling to proactive pre-cooling, ECON incorporates a **Long Short-Term Memory (LSTM)** network (Hochreiter & Schmidhuber, 1997). The gated cell state lets the model retain long-range dependencies in weather and occupancy without the vanishing-gradient problem that afflicts vanilla RNNs. At each timestep $t$, with input $x_t$ and previous hidden state $h_{t-1}$, the cell computes the forget, input, and output gates and updates its memory $c_t$:
+To transition from reactive cooling to proactive pre-cooling, ECON incorporates a **Long Short-Term Memory (LSTM)** network (Hochreiter & Schmidhuber, 1997). The gated cell state lets the model retain long-range dependencies in weather and occupancy without the vanishing-gradient problem that afflicts vanilla RNNs. At each timestep $t$, with input $x\_t$ and previous hidden state $h\_{t-1}$, the cell computes the forget, input, and output gates and updates its memory $c\_t$:
 
 $$
 \begin{aligned}
@@ -448,13 +448,13 @@ $$
 x_t = \big[\,T_{\text{room},t},\; \phi_{\text{flow},t},\; T_{\text{out},t},\; \mathrm{RH}_{\text{out},t}\,\big]
 $$
 
-(zone temperature, airflow fraction, outdoor temperature, outdoor humidity). A linear head maps the final hidden state $h_L$ to the scalar prediction — the building **peak cooling load** in MW:
+(zone temperature, airflow fraction, outdoor temperature, outdoor humidity). A linear head maps the final hidden state $h\_L$ to the scalar prediction — the building **peak cooling load** in MW:
 
 $$
 \hat{P}_{\text{peak}} = W_{\text{out}}\, h_L + b_{\text{out}}.
 $$
 
-The model is trained on data synthesized from the engine's own load physics ($P_{\text{build}} = Q_{\text{cool}}/\text{COP} + P_{\text{base}}$, §6.6), reaching a validation MAE of $\approx 0.045\,\mathrm{MW}$. At runtime the Go engine assembles the live $[\,T_{\text{room}}, \phi_{\text{flow}}\,]$ window via `Engine.ForecastWindow`, the FastAPI service appends the cached weather features, and the LSTM returns the forecast through `GET /api/forecast`.
+The model is trained on data synthesized from the engine's own load physics ($P\_{\text{build}} = Q\_{\text{cool}}/\text{COP} + P\_{\text{base}}$, §6.6), reaching a validation MAE of $\approx 0.045\,\mathrm{MW}$. At runtime the Go engine assembles the live $[\,T\_{\text{room}}, \phi\_{\text{flow}}\,]$ window via `Engine.ForecastWindow`, the FastAPI service appends the cached weather features, and the LSTM returns the forecast through `GET /api/forecast`.
 
 ### 4.4 Layout-Constrained Airflow (Masked Potential Flow)
 Rather than scatter cosmetic particles, ECON solves a **layout-constrained potential-flow field** so the visualized air actually respects walls, doors, diffusers, and returns (`dashboard/src/flowfield3d.js`). Treating the conditioned air as an incompressible, irrotational flow, the velocity is the gradient of a scalar potential $\phi$, and mass conservation with distributed sources reduces to a Poisson equation:
@@ -482,15 +482,15 @@ The solve is memoized on a coarse key (rounded VAV flow, bucketed occupancy, ala
 ### 4.5 Reinforcement Learning Operations
 To fully automate supervisory control, ECON frames building operation as a Markov Decision Process (MDP) $(\mathcal{S}, \mathcal{A}, P, R, \gamma)$, following the occupant-centric building-control RL literature (Wei et al., 2017; Vázquez-Canteli & Nagy, 2019):
 
-- **State $S_t$** — current zone temperatures, occupancy, dynamic grid prices, and weather forecasts.
-- **Action $A_t$** — HVAC setpoints, pre-cooling activation, and battery dispatch.
-- **Reward $R_t$** — a multi-objective signal penalizing both energy expenditure and thermal discomfort, where the discomfort term grows quadratically with any excursion beyond the comfort deadband $\delta$:
+- **State $S\_t$** — current zone temperatures, occupancy, dynamic grid prices, and weather forecasts.
+- **Action $A\_t$** — HVAC setpoints, pre-cooling activation, and battery dispatch.
+- **Reward $R\_t$** — a multi-objective signal penalizing both energy expenditure and thermal discomfort, where the discomfort term grows quadratically with any excursion beyond the comfort deadband $\delta$:
 
 $$
 R_t = -\left( \alpha\,\text{EnergyCost}_t + \beta \sum_{z} \big(\max(0,\,|T_z - T_{\text{set}}| - \delta)\big)^2 \right).
 $$
 
-The agent maximizes the discounted return $\mathbb{E}\big[\sum_t \gamma^t R_t\big]$. The same quadratic-excess discomfort kernel is reused at runtime as the bounded system-health score of §6.5, so the dashboard's live "health" metric is consistent with the objective the policy is trained against.
+The agent maximizes the discounted return $\mathbb{E}\big[\sum\_t \gamma^t R\_t\big]$. The same quadratic-excess discomfort kernel is reused at runtime as the bounded system-health score of §6.5, so the dashboard's live "health" metric is consistent with the objective the policy is trained against.
 
 ---
 
@@ -525,7 +525,7 @@ While ECON operates as an autonomous system, facility managers must retain super
 To ensure ECON operates as a deterministic, physical Digital Twin rather than a superficial dashboard, the Go backend (`econ/server/simulation/engine.go`) implements a strict state-space thermodynamic and fluid dynamics model. 
 
 ### 6.1 The 2R1C Lumped-Capacitance Thermodynamic Model
-While purely data-driven models often fail out-of-distribution during critical HVAC faults or thermal-runaway events, a physical 2-Resistor / 1-Capacitor (2R1C) equivalent-circuit model guarantees first-law (energy-conservation) consistency by construction. Following the simplified RC building-model formulation reviewed by Kramer et al. (2012) and the ASHRAE heat-balance method, each zone resolves transient heat transfer between the outdoor environment, the wall thermal mass ($C_{\text{wall}}$), and the indoor air volume ($C_{\text{air}}$) through an inner resistance $R_{\text{in}}$ (air ↔ wall) and an outer resistance $R_{\text{out}}$ (wall ↔ outdoors):
+While purely data-driven models often fail out-of-distribution during critical HVAC faults or thermal-runaway events, a physical 2-Resistor / 1-Capacitor (2R1C) equivalent-circuit model guarantees first-law (energy-conservation) consistency by construction. Following the simplified RC building-model formulation reviewed by Kramer et al. (2012) and the ASHRAE heat-balance method, each zone resolves transient heat transfer between the outdoor environment, the wall thermal mass ($C\_{\text{wall}}$), and the indoor air volume ($C\_{\text{air}}$) through an inner resistance $R\_{\text{in}}$ (air ↔ wall) and an outer resistance $R\_{\text{out}}$ (wall ↔ outdoors):
 
 $$
 \frac{dT_{\text{air}}}{dt} = \frac{1}{C_{\text{air}}} \left[ \frac{T_{\text{wall}} - T_{\text{air}}}{R_{\text{in}}} + \dot{q}_{\text{int}} - \dot{q}_{\text{cool}} \right]
@@ -535,7 +535,7 @@ $$
 \frac{dT_{\text{wall}}}{dt} = \frac{1}{C_{\text{wall}}} \left[ \frac{T_{\text{out}} - T_{\text{wall}}}{R_{\text{out}}} - \frac{T_{\text{wall}} - T_{\text{air}}}{R_{\text{in}}} \right]
 $$
 
-where $\dot{q}_{\text{int}}$ is the aggregate internal heat load (occupants + equipment + solar gain) and $\dot{q}_{\text{cool}}$ is the active sensible cooling delivered by the VAV terminal unit (§6.2). Collecting the state $\mathbf{T} = [\,T_{\text{air}},\, T_{\text{wall}}\,]^{\top}$, this is a linear state-space system $\dot{\mathbf{T}} = \mathbf{A}\mathbf{T} + \mathbf{b}$ with
+where $\dot{q}\_{\text{int}}$ is the aggregate internal heat load (occupants + equipment + solar gain) and $\dot{q}\_{\text{cool}}$ is the active sensible cooling delivered by the VAV terminal unit (§6.2). Collecting the state $\mathbf{T} = [\,T\_{\text{air}},\, T\_{\text{wall}}\,]^{\top}$, this is a linear state-space system $\dot{\mathbf{T}} = \mathbf{A}\mathbf{T} + \mathbf{b}$ with
 
 $$
 \mathbf{A} =
@@ -563,7 +563,7 @@ $$
 \Delta t < \frac{2}{|\lambda_{\max}(\mathbf{A})|} \approx 2\,R_{\text{in}} C_{\text{air}} = 2\,\tau_{\text{air}},
 $$
 
-i.e. the timestep must stay below twice the smallest zone time constant $\tau_{\text{air}} = R_{\text{in}}C_{\text{air}}$. The base tick $\Delta t = 33\,\mathrm{ms}$ sits far inside this limit; the scenario engine only inflates $\Delta t$ (up to $2.0$) for *visual* fast-forward of recovery, which remains stable given the large zone capacitances ($C_{\text{air}}, C_{\text{wall}} \sim 10^{6}\,\mathrm{J/K}$).
+i.e. the timestep must stay below twice the smallest zone time constant $\tau\_{\text{air}} = R\_{\text{in}}C\_{\text{air}}$. The base tick $\Delta t = 33\,\mathrm{ms}$ sits far inside this limit; the scenario engine only inflates $\Delta t$ (up to $2.0$) for *visual* fast-forward of recovery, which remains stable given the large zone capacitances ($C\_{\text{air}}, C\_{\text{wall}} \sim 10^{6}\,\mathrm{J/K}$).
 
 ### 6.2 HVAC Cooling Capacity & Nominal Flow Normalization
 To prevent thermal drift across unequally-sized zones, the engine sizes each zone's cooling capacity against its VAV's *nominal* design flow, so that at nominal flow and setpoint the zone is in exact steady-state balance:
@@ -573,13 +573,13 @@ $$
 \qquad T_{\text{supply}} = 12\,^{\circ}\mathrm{C},
 $$
 
-where $\dot{m}$ is the live VAV mass-airflow, $\dot{m}_{\text{nom}}$ its nominal value (captured once from the Hardy-Cross solve at default damper resistance, §6.3), and $T_{\text{supply}} = 12\,^{\circ}\mathrm{C}$ is the conditioned supply-air temperature. The nominal total load that must be removed to hold setpoint is the sum of the nominal internal gains and the steady-state envelope conduction:
+where $\dot{m}$ is the live VAV mass-airflow, $\dot{m}\_{\text{nom}}$ its nominal value (captured once from the Hardy-Cross solve at default damper resistance, §6.3), and $T\_{\text{supply}} = 12\,^{\circ}\mathrm{C}$ is the conditioned supply-air temperature. The nominal total load that must be removed to hold setpoint is the sum of the nominal internal gains and the steady-state envelope conduction:
 
 $$
 \dot{q}_{\text{total,nom}} = \dot{q}_{\text{int,nom}} + \frac{T_{\text{out}} - T_{\text{sp}}}{R_{\text{in}} + R_{\text{out}}}.
 $$
 
-Normalizing by each VAV's own nominal flow (rather than a hard-coded reference) keeps the model correct regardless of how many VAVs share an AHU. Consequently any airflow reduction ($\dot{m} < \dot{m}_{\text{nom}}$) — whether from an occupancy setback or a stuck damper — produces an immediate, physically-grounded drop in cooling capacity, driving the $T_{\text{air}}$ equation of §6.1 into a warming state.
+Normalizing by each VAV's own nominal flow (rather than a hard-coded reference) keeps the model correct regardless of how many VAVs share an AHU. Consequently any airflow reduction ($\dot{m} < \dot{m}\_{\text{nom}}$) — whether from an occupancy setback or a stuck damper — produces an immediate, physically-grounded drop in cooling capacity, driving the $T\_{\text{air}}$ equation of §6.1 into a warming state.
 
 ### 6.3 Hardy Cross Fluid Network Solver
 When a VAV damper closes (from a fault or an occupancy-driven setback), the static pressure in the shared ductwork shifts, inherently forcing more airflow into the parallel zones. Each duct branch obeys the turbulent head-loss law
@@ -594,13 +594,13 @@ $$
 \Delta Q = -\,\frac{\sum K\,Q\,|Q|}{\sum 2K\,|Q|}.
 $$
 
-For ECON's topology — $V$ VAV branches in **parallel** between a common AHU plenum and the return — the network reduces to a single node, so the engine solves the equivalent system in closed form rather than looping (`doHardyCross`). At a common plenum-to-return pressure drop $\Delta P$, each branch carries $Q_v = \sqrt{\Delta P / K_v}$; summing and inverting gives the equivalent system resistance
+For ECON's topology — $V$ VAV branches in **parallel** between a common AHU plenum and the return — the network reduces to a single node, so the engine solves the equivalent system in closed form rather than looping (`doHardyCross`). At a common plenum-to-return pressure drop $\Delta P$, each branch carries $Q\_v = \sqrt{\Delta P / K\_v}$; summing and inverting gives the equivalent system resistance
 
 $$
 K_{\text{sys}} = \left( \sum_{v=1}^{V} K_v^{-1/2} \right)^{-2}.
 $$
 
-The AHU fan supplies a fixed pressure budget $P_{\max}$ split between the fan curve coefficient $K_{\text{fan}}$ and the network, fixing the total flow and the operating pressure:
+The AHU fan supplies a fixed pressure budget $P\_{\max}$ split between the fan curve coefficient $K\_{\text{fan}}$ and the network, fixing the total flow and the operating pressure:
 
 $$
 Q_{\text{tot}}^{2} = \frac{P_{\max}}{K_{\text{fan}} + K_{\text{sys}}},
@@ -610,7 +610,7 @@ Q_{\text{tot}}^{2} = \frac{P_{\max}}{K_{\text{fan}} + K_{\text{sys}}},
 Q_v = \sqrt{\frac{\Delta P}{K_v}}.
 $$
 
-This equivalent-resistance reduction is exact for the parallel star (no iteration needed), while the iterative form above remains available for genuinely looped duct topologies. Solving the network dynamically — rather than assuming static per-VAV flows — lets the AI Auto-Pilot train against the realistic, cascading aerodynamic consequences (a closing damper raising $K_{\text{sys}}$ and redistributing flow to its neighbours) that occur during peak load or mechanical failure.
+This equivalent-resistance reduction is exact for the parallel star (no iteration needed), while the iterative form above remains available for genuinely looped duct topologies. Solving the network dynamically — rather than assuming static per-VAV flows — lets the AI Auto-Pilot train against the realistic, cascading aerodynamic consequences (a closing damper raising $K\_{\text{sys}}$ and redistributing flow to its neighbours) that occur during peak load or mechanical failure.
 
 ### 6.4 Dynamic Coefficient of Performance (COP) Degradation
 The chiller plant's efficiency is not static: as zones drift above setpoint the chillers run at higher lift, so the plant COP degrades with thermal **strain**. We define the strain as the mean per-zone over-setpoint excess (clamped at zero, so well-conditioned zones contribute nothing):
@@ -649,7 +649,7 @@ $$
 This grades the building by *severity* — a $0.1\,^{\circ}\mathrm{C}$ overshoot reads as essentially healthy while a runaway collapses toward $0$ — replacing the earlier binary in-band/out-of-band flag, while a separate discrete count of alarmed zones drives the hard fault indicators.
 
 ### 6.6 Building Electrical-Load Decomposition & Occupancy Savings
-The total electrical demand streamed to the dashboard is assembled from the thermodynamic state and the dynamic COP of §6.4. Aggregating the sensible cooling delivered to every zone gives the plant's thermal duty $Q_{\text{cool}} = \sum_z \dot q_{\text{int},z}$ (MW-thermal); dividing by the COP yields the chiller electrical draw, to which a fixed non-cooling baseline $P_{\text{base}} = 2.0\,\mathrm{MW}$ (lighting, plug, and fan loads) is added:
+The total electrical demand streamed to the dashboard is assembled from the thermodynamic state and the dynamic COP of §6.4. Aggregating the sensible cooling delivered to every zone gives the plant's thermal duty $Q\_{\text{cool}} = \sum\_z \dot q\_{\text{int},z}$ (MW-thermal); dividing by the COP yields the chiller electrical draw, to which a fixed non-cooling baseline $P\_{\text{base}} = 2.0\,\mathrm{MW}$ (lighting, plug, and fan loads) is added:
 
 $$
 P_{\text{build}} = \frac{Q_{\text{cool}}}{\text{COP}} + P_{\text{base}}.
@@ -661,7 +661,7 @@ $$
 P_{\text{saved}} = \frac{1}{10^{6}}\sum_{z \in \mathcal{Z}_{\text{setback}}}\left( P_{\text{light},z} + \frac{0.25\,\dot q_{\text{base},z}}{\text{COP}} \right) \quad [\mathrm{MW}],
 $$
 
-with $P_{\text{light},z} = 2\,\mathrm{kW}$ per zone. This is the `energySavedMw` figure on the dashboard — a directly-attributable, occupancy-driven saving rather than a modeled estimate. Finally, the broadcast telemetry is perturbed by additive Gaussian sensor noise $\varepsilon \sim \mathcal{N}(0, \sigma_s^2)$, generated via the Box–Muller transform, so the live charts exhibit realistic measurement jitter without affecting the underlying physics state.
+with $P\_{\text{light},z} = 2\,\mathrm{kW}$ per zone. This is the `energySavedMw` figure on the dashboard — a directly-attributable, occupancy-driven saving rather than a modeled estimate. Finally, the broadcast telemetry is perturbed by additive Gaussian sensor noise $\varepsilon \sim \mathcal{N}(0, \sigma\_s^2)$, generated via the Box–Muller transform, so the live charts exhibit realistic measurement jitter without affecting the underlying physics state.
 
 ---
 
