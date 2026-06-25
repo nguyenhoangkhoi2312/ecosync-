@@ -15,10 +15,6 @@ edge/esp32/.pio/
 *.pt
 *.mp4
 
-# Local agent-context scratch files (never commit)
-CONTINUE_HERE.md
-GEMINI.md
-.claude/
 
 # Large Datasets & Training outputs
 ai_modules/branch_b_digitization/runs/
