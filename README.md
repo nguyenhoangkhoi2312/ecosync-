@@ -4,6 +4,22 @@ ECON is a high-performance Digital Twin platform designed to bridge Building Inf
 
 > **🆕 Latest Updates**
 >
+> ### 2026-06-25 — Digitized building deployed to the live twin
+>
+> **The real digitized floorplan now drives the twin.** The latest floorplan-digitization output
+> (15 floors / 1350 zones) is deployed to both the engine (`server/data/`) and the dashboard
+> (`dashboard/src/building-data.json`), so the 3D model and 2D topology render exactly the building
+> the Go engine simulates. The engine boots it cleanly and streams live building load (~17.6 MW)
+> with per-zone telemetry persisted to TimescaleDB — selecting a zone now shows its real
+> temperature/occupancy history sparklines (previously empty whenever the dashboard and engine were
+> built from different `building-data.json` copies).
+>
+> **Topology builder hardened for digitized ontologies.** `buildTopologyFromSim` now normalizes the
+> Brick ontology to `{source, target, predicate}`, tolerating both the legacy
+> `{ relationships: [...] }` object and the digitization pipeline's flat
+> `{subject, predicate, object}` triple array. An `undefined` relationships array from the new
+> format had been crashing the desktop dashboard to a black screen.
+>
 > ### 2026-06-25 — YOLO Integration & Backend Data Lifecycle
 >
 > **Computer Vision Floorplan Parsing.** The SkeySpot YOLOv11 model weights (`best.pt`, trained on CubiCasa5K) are now integrated into `detector.py`. This allows the platform to natively ingest raw 2D blueprints, detect physical boundaries, and classify bounding boxes for electrical appliances and structural components directly into the semantic ontology.
