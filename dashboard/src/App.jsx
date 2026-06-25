@@ -151,7 +151,15 @@ const buildTopologyFromSim = (simState, activeFloor, ontology) => {
     data: { label: 'AHU-MAIN', status: simState.scenario === 'fault' ? 'FAULT' : 'NOMINAL', pressure: simState.ahuPressure }
   });
 
-  const relationships = ontology ? ontology.relationships : [];
+  // Normalize the Brick ontology to {source, target, predicate}. Tolerates both the legacy
+  // shape ({ relationships: [{source, predicate, target}] }) and the digitized-pipeline shape
+  // (a flat array of {subject, predicate, object}). Missing/empty ontology -> no edges (no crash).
+  const rawRels = Array.isArray(ontology) ? ontology : (ontology?.relationships ?? []);
+  const relationships = rawRels.map(r => ({
+    source: r.source ?? r.subject,
+    target: r.target ?? r.object,
+    predicate: r.predicate,
+  }));
   
   // Electrical Panel for the floor
   const panelId = `panel-lvl${activeFloor}`;
